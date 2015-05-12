@@ -857,8 +857,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					tvFstAddtessDetails.setText(listItem.getString(TAG_ADDRESS));
 					if (addressArray.length > 3) {
 						tvSndAddtessDetails.setText(addressArray[2] + ","+ addressArray[3]);
-					} else {
+					} else if(addressArray.length == 3){
 						tvSndAddtessDetails.setText(addressArray[2] + ",");
+					}else{
+						tvSndAddtessDetails.setText(addressArray[0] + ",");
 					}
 					tvContactDetails.setText(listItem.getString(TAG_CONTACT_NO));
 					String timeArray[] = listItem.getString(TAG_OPENINGHOUR).split(",");
