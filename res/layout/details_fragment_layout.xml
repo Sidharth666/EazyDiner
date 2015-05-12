@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
+    android:orientation="vertical" >
+
+    <com.classes.StickyScrollView
+        android:id="@+id/parentScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="230dip"
+                android:background="#FBE2CF" >
+
+                <ImageView
+                    android:id="@+id/ivHeaderImage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center" />
+
+                <RelativeLayout
+                    android:id="@+id/fstLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#88000000" >
+
+                    <LinearLayout
+                        android:id="@+id/llDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tvDetailsName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvDetailsType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llShareLike"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llDetails"
+                        android:layout_marginRight="20dip"
+                        android:gravity="center|right"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tvShareCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dip"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnShare"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:src="@drawable/like_star" />
+
+                        <TextView
+                            android:id="@+id/tvLikeCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingLeft="8dip"
+                            android:text="0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnLike"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:src="@drawable/like_icon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dp"
+                        android:layout_below="@+id/llShareLike"
+                        android:orientation="vertical" >
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/rlEazydealLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FBBA00"
+                    android:tag="sticky"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/textEazyDealTag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dip"
+                        android:text="EAZYDEAL:"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvEazyDealsDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dip"
+                        android:layout_toRightOf="@+id/textEazyDealTag"
+                        android:paddingBottom="8dip"
+                        android:paddingTop="8dip"
+                        android:text="Free glass of wine..." />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llHotelState"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlEazydealLayout"
+                    android:background="#FBE2CF"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dip"
+                    android:paddingTop="10dip"
+                    android:weightSum="100" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dip"
+                                android:src="@drawable/mail_icon" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/tvFstAddtessDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dip"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tvSndAddtessDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dip"
+                                    android:textSize="13sp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llContactDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginTop="15dip"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dip"
+                                android:src="@drawable/call_details" />
+
+                            <TextView
+                                android:id="@+id/tvContactDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="17dip"
+                                android:layout_marginTop="0dip"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginTop="15dip"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dip"
+                                android:src="@drawable/clock_icon" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/tvLunchTimeDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dip"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tvDinerTimeDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dip"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dip"
+                                    android:text="Weekend timings may differ"
+                                    android:textSize="13sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginTop="15dip"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dip"
+                                android:src="@drawable/price_details" />
+
+                            <TextView
+                                android:id="@+id/tvPriceDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:layout_marginTop="4dip"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="65"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:id="@+id/llCriticReviewsDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="invisible" >
+
+                            <ImageView
+                                android:id="@+id/ivDetailsReviews"
+                                android:layout_width="60dip"
+                                android:layout_height="60dip"
+                                android:src="@drawable/logo_slider"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/textCriticRatingDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dip"
+                                android:text="CRITIC RATING"
+                                android:textSize="11sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dip"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:id="@+id/tvCriticReviewDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="30sp" />
+
+                                <TextView
+                                    android:id="@+id/textTotalRatingDetails"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/30"
+                                    android:textSize="17sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textUserRatingDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dip"
+                            android:text="USER RATING"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:id="@+id/tvUserReviewDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip" />
+
+                        <ImageView
+                            android:id="@+id/ivPriceImageDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="2dip"
+                            android:layout_marginTop="10dip"
+                            android:src="@drawable/price_3" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llBtnContainer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llHotelState"
+                    android:background="#FBE2CF"
+                    android:paddingBottom="5dip"
+                    android:weightSum="2" >
+
+                    <RelativeLayout
+                        android:id="@+id/rlImageGallery"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dip"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginRight="10dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/menu_image"
+                        android:clickable="true" >
+
+                        <TextView
+                            android:id="@+id/textGallery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="GALLERY"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlRestaurantMenu"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dip"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="20dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/menu_image"
+                        android:clickable="true" >
+
+                        <TextView
+                            android:id="@+id/textMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="MENU"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details_review"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llBtnContainer"
+                    android:background="#FBE2CF"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip"
+                    android:paddingTop="10dip"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/tvReviewer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvReviewDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:lineSpacingMultiplier="1.20"
+                        android:text="@string/virs_verdicc"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/textInsiderTipsHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="Insider Tips"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvInsiderTips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:lineSpacingMultiplier="1.20"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/thrLine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@+id/details_review"
+                    android:background="#FFFFFF" >
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thrLine"
+                    android:background="#99000000"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="150dip"
+                        android:background="#FFFFFF" >
+
+                        <RelativeLayout
+                            android:id="@+id/rlRatingSub"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dip"
+                            android:paddingTop="10dip" >
+
+                            <EditText
+                                android:id="@+id/etUserReviewsSubject"
+                                android:layout_width="140dip"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20dip"
+                                android:background="#FFFFFF"
+                                android:hint="Title"
+                                android:singleLine="true"
+                                android:textColorHint="#000000" />
+
+                            <RelativeLayout
+                                android:id="@+id/llRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="20dip"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/textReviewReating"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="2dip"
+                                    android:text="MY RATING"
+                                    android:textSize="11sp" />
+
+                                <RatingBar
+                                    android:id="@+id/userRating"
+                                    style="@style/foodRatingBar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_below="@+id/textReviewReating"
+                                    android:numStars="5"
+                                    android:paddingTop="5dip" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <FrameLayout
+                            android:id="@+id/flLine"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0.5dip"
+                            android:layout_below="@+id/rlRatingSub"
+                            android:background="#000000" >
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/rlCamPost"
+                            android:layout_below="@+id/flLine"
+                            android:orientation="vertical"
+                            android:paddingTop="10dip" >
+
+                            <EditText
+                                android:id="@+id/etUserReviews"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dip"
+                                android:layout_marginLeft="20dip"
+                                android:layout_marginRight="10dip"
+                                android:background="#FFFFFF"
+                                android:hint="Write your review.."
+                                android:textColorHint="#000000" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlCamPost"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+                            android:layout_alignParentBottom="true" >
+
+                            <ImageView
+                                android:id="@+id/ivGetCameraStart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dip"
+                                android:paddingBottom="10dip"
+                                android:src="@drawable/camera_icon" />
+
+                            <RelativeLayout
+                                android:id="@+id/rlPostReviews"
+                                android:layout_width="70dip"
+                                android:layout_height="fill_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginBottom="2dip"
+                                android:layout_marginRight="2dip"
+                                android:background="#808080"
+                                android:clickable="true" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="POST"
+                                    android:textColor="#FFFFFF" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlUserRatingArea"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dip"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginRight="20dip"
+                        android:layout_marginTop="12dip"
+                        android:visibility="gone" >
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/tvReviewCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24 User Reviews"
+                                android:textColor="#FFFFFF"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tvPhotoCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="10 Photos"
+                                android:textColor="#FFFFFF"
+                                android:textSize="15sp"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llUserReviewsArea"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/review_textbox"
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </com.classes.StickyScrollView>
+
+</LinearLayout>

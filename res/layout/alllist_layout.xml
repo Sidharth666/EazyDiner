@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.easydiner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background" >
+
+    <LinearLayout
+        android:id="@+id/alllist_near_and_search"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="28.33" >
+
+            <ImageView
+                android:id="@+id/ivMapView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="22dip"
+                android:padding="5dip"
+                android:src="@drawable/mapicon_selector_effect" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33.33" >
+
+           <!--  <ImageView
+                android:id="@+id/ivSearchItemAlllist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/searchicon_selector_effect" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="40.33" >
+
+            <ImageView
+                android:id="@+id/ivMenuAlllist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/menu_icon_grey" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/tabFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/allListLowerButtons"
+        android:layout_below="@+id/alllist_near_and_search" />
+
+    <LinearLayout
+        android:id="@+id/llSearchAlllist"
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_below="@+id/alllist_near_and_search"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="15"
+            android:background="#FFFFFF" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dip"
+                android:id="@+id/textSearchAlllist"
+                android:text="CUISINE, LOCATION, KEYWORD" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="85"
+            android:background="#FC4415" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/search_icon_white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/allListLowerButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rlAllistBtnEazyCon"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="#636364"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/eazy_conceirge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/allist_book_now"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="@color/theme_color"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/book_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

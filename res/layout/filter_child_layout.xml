@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAEAEA"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@+id/tvFilterChildItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dip"
+            android:paddingBottom="15dp"
+            android:paddingLeft="25dip"
+            android:paddingTop="15dp"
+            android:text="XXXXXX"
+            android:textColor="#000000"
+            android:textSize="17dip" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:id="@+id/rbSelectFilter"
+            android:layout_centerVertical="true" >
+
+        </RadioButton>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" >
+    </FrameLayout>
+
+</LinearLayout>

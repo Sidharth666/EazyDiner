@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rlEazyTrands"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dip"
+        android:layout_marginTop="10dip"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+            android:text="EAZYTRENDS"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:id="@+id/textEazyTraindsHome"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:src="@drawable/right_arrow" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#FFFFFF" >
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDeals"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#99FC4415"
+        android:clickable="true"
+        android:paddingBottom="9dip"
+        android:paddingTop="10dip" >
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+            android:text="DEALS"
+            android:textStyle="bold"
+            android:id="@+id/textDealsHome"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textDealsLower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complimentary wine and other great offers"
+            android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+        
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:src="@drawable/right_arrow" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#FFFFFF" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignupLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="45dip"
+        android:layout_marginTop="25dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textSignupLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="SIGN UP / LOG IN"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_marginRight="25dip"
+                android:id="@+id/ivFbLogin"
+                android:src="@drawable/fb_login" />
+
+            <ImageView
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_marginRight="25dip"
+                android:id="@+id/ivGpLogin"
+                android:src="@drawable/gplus_login" />
+
+            <ImageView
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:id="@+id/ivGenLogin"
+                android:src="@drawable/mail_login" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlUsersummary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dip"
+        android:layout_marginTop="25dip" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dip"
+            android:id="@+id/llEdPoints"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textEazyPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MY EAZYDINER POINTS"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvEDPointHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dip"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textUpcomingBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPCOMING BOOKINGS"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/ivUpcomingBookingsHome"
+                android:layout_width="70dip"
+                android:layout_height="50dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:src="@drawable/upcoming_bookings" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/menu_near_and_search"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="28.33" >
+
+            <ImageView
+                android:id="@+id/ivMapViewMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="22dip"
+                android:padding="5dip"
+                android:src="@drawable/mapicon_selector_effect" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33.33" >
+
+            <ImageView
+                android:id="@+id/ivSearchItemMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/searchicon_selector_effect" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="40.33" >
+
+            <ImageView
+                android:id="@+id/ivMenuMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/menu_icon_grey" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/elvItemPopup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:groupIndicator="@drawable/indicator" 
+        android:layout_below="@+id/menu_near_and_search" >
+    </ExpandableListView>
+
+</RelativeLayout>

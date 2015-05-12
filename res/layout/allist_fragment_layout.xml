@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/testLayoutFilter"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:background="#dddddd"
+        android:clickable="true"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:clickable="true"
+            android:id="@+id/rlClear" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:id="@+id/textClear"
+                android:visibility="gone"
+                android:text="CLEAR" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:clickable="true"
+            android:id="@+id/testLayout">
+            
+            <ImageView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/filter_icon"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textFilter"
+                android:id="@+id/ivFilter"
+                android:layout_marginRight="5dip"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:id="@+id/textFilter"
+                android:text="FILTER" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvMainList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/testLayoutFilter" >
+    </ListView>
+
+    <ExpandableListView
+        android:id="@+id/elvItemFilterCuisine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/testLayoutFilter"
+        android:groupIndicator="@drawable/indicator_black" 
+        android:visibility="gone" >
+    </ExpandableListView>
+
+</RelativeLayout>

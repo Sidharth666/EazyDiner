@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/Rlcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/lowerButtons" >
+
+        <LinearLayout
+            android:id="@+id/near_and_search"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="#000000"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="28.33" >
+
+                <!-- <ImageView
+                    android:id="@+id/ivMapView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="22dip"
+                    android:padding="5dip"
+                    android:src="@drawable/mapicon_selector_effect" /> -->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="33.33" >
+
+                <!-- <ImageView
+                    android:id="@+id/img_search_srch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="22dip"
+                    android:padding="5dip"
+                    android:src="@drawable/searchicon_selector_effect" /> -->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="40.33" >
+
+                <ImageView
+                    android:id="@+id/ivMenuSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="22dip"
+                    android:padding="5dip"
+                    android:src="@drawable/menu_icon_grey" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/blk_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/near_and_search"
+            android:background="#AA000000" >
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/search_by_keyword"
+            android:layout_width="fill_parent"
+            android:layout_height="35dip"
+            android:layout_below="@+id/blk_line"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="15"
+                android:background="#FFFFFF" >
+
+                <EditText
+                    android:id="@+id/etSearchItemSrch"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dip"
+                    android:singleLine="true"
+                    android:background="#00000000"
+                    android:hint="CUISINE, LOCATION, KEYWORD"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="85"
+                android:clickable="true"
+                android:id="@+id/rlSearchRestaurantBtn"
+                android:background="#FC4415" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/search_icon_white" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/search_by_keyword"
+            android:background="@drawable/ic_background"
+            android:orientation="vertical" >
+				<LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+				    android:background="#77000000"
+				     >
+            <LinearLayout
+                android:id="@+id/llSrcListHeading"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="18dip"
+                    android:id="@+id/textSearchListHeading"
+                    android:text="SUGGESTED SEARCHES IN DELHI NCR"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvSearchItem"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llSrcListHeading" >
+            </ListView>
+        </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lowerButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rlHomeBtnEazyConSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="@color/theme_color"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/eazy_conceirge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlHomeBtnBooknowSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="#636364"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/book_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

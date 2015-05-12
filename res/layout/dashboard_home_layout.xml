@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/dashboardhome_near_and_search"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:background="#ffffff"
+        android:padding="8dp" >
+
+        <RelativeLayout
+            android:id="@+id/Rlheader1"
+            android:layout_width="1dip"
+            android:layout_height="74dp" >
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_nav_orange" />
+
+        <ImageView
+            android:id="@+id/ivGoHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="12dip"
+            android:layout_toLeftOf="@+id/ivMenuHome"
+            android:padding="3dip"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/ivMenuHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dip"
+            android:padding="3dip"
+            android:src="@drawable/manuicon_selector_effect" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/DashBoardHomeLowerButtons"
+        android:layout_below="@+id/dashboardhome_near_and_search"
+        android:background="#77000000"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/text1DashboardHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dip"
+            android:text="MY DASHBOARD"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip" >
+
+            <com.classes.CircularImageView
+                android:id="@+id/ivProfileImageDashboardHome"
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:layout_marginLeft="20dip"
+                android:src="@drawable/default_image_restaurant" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/text2DashboardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="MY POINTS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvUserPointsDashboardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    android:textSize="35sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlShowRedeemp"
+                    android:layout_width="85dip"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/theme_color"
+                    android:clickable="true" >
+
+                    <TextView
+                        android:id="@+id/text3DashboardHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="REDEEM"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llDashBoardMenu"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_below="@+id/rlMemberDetailsDashBoard"
+            android:layout_marginTop="15dip"
+            android:background="#99000000"
+            android:orientation="horizontal"
+            android:weightSum="60" >
+
+            <RelativeLayout
+                android:id="@+id/rlReservationsDashBoardHome"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="20"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/ivReservationsDashBoardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/reservation_select_effect" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlProfileDashBoardHome"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="20"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/ivProfileDashBoardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/profile_select_effect" />
+            </RelativeLayout>
+
+            <!-- <RelativeLayout
+                android:id="@+id/rlReviewImageListDashBoardHome"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="20"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/ivReviewImageListDashBoardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/review_select_effect" />
+            </RelativeLayout> -->
+
+            <!-- <RelativeLayout
+                android:id="@+id/rlWishlistDashBoardHome"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="20"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/ivWishlistDashBoardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/wishlist_select_effect" />
+            </RelativeLayout> -->
+
+            <RelativeLayout
+                android:id="@+id/rlPiggyDashBoardHome"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="20"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/ivPiggyDashBoardHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/piggy_select_effect" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/text4DashboardHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dip"
+                android:text="RESERVATIONS"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/lvResDetailsList"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="2dp" >
+            </ListView>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="35dip"
+            android:layout_marginTop="15dip"
+            android:padding="5dip"
+            android:src="@drawable/arrow_down"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSearchDashBoardHome"
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_below="@+id/dashboardhome_near_and_search"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="15"
+            android:background="#FFFFFF" >
+
+            <TextView
+                android:id="@+id/textSearchDashboardHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dip"
+                android:text="CUISINE, LOCATION, KEYWORD" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="85"
+            android:background="#FC4415" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/search_icon_white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/DashBoardHomeLowerButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rlDashBoardHomeBtnEazyCon"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="#636364"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/eazy_conceirge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/DashBoardHome_book_now"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="@color/theme_color"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/book_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background" >
+
+    	<LinearLayout
+        android:id="@+id/criticreview_near_and_search"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="28.33" >
+
+            <!-- <ImageView
+                android:id="@+id/ivMapView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="22dip"
+                android:padding="5dip"
+                android:src="@drawable/mapicon_selector_effect" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33.33" >
+
+            <!-- <ImageView
+                android:id="@+id/ivSearchItemCriticReviewList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/searchicon_selector_effect" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="40.33" >
+
+            <ImageView
+                android:id="@+id/ivMenuCriticReviewList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/menu_icon_grey" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/criticreview_near_and_search"
+        android:layout_above="@+id/criticReviewLowerButtons"
+        android:background="#99000000"
+        android:id="@+id/llMailContaint"
+        android:orientation="vertical"
+        >
+        
+        <ExpandableListView 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/elvCriticReviewedItem"
+            ></ExpandableListView>
+	    
+    </LinearLayout>  
+		
+    <LinearLayout
+        android:id="@+id/llSearchCriticReviewList"
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_below="@+id/criticreview_near_and_search"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="15"
+            android:background="#FFFFFF" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dip"
+                android:id="@+id/textSearchCriticreviewList"
+                android:text="CUISINE, LOCATION, KEYWORD" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="85"
+            android:background="#FC4415" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/search_icon_white" />
+        </RelativeLayout>
+    </LinearLayout>
+	    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:weightSum="100"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:id="@+id/criticReviewLowerButtons"
+        android:layout_alignParentBottom="true"
+         >
+		    <RelativeLayout 
+		        android:layout_weight="50"
+		        android:layout_height="fill_parent"
+		        android:layout_width="fill_parent"
+		        android:background="#636364"
+		        android:clickable="true"
+		        android:id="@+id/rlCriticRListConCall"
+		        >
+		        
+		        <ImageView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/eazy_conceirge"
+		            android:layout_centerInParent="true"
+		            />
+		        
+		    </RelativeLayout>
+		    <RelativeLayout 
+		        android:layout_weight="50"
+		        android:layout_height="fill_parent"
+		        android:layout_width="fill_parent"
+		        android:background="@color/theme_color"
+		        android:clickable="true"
+		        android:id="@+id/criticreviewlist_book_now"
+		        >
+		            
+		         <ImageView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/book_now"
+		            android:layout_centerInParent="true"
+		            />
+		        
+		    </RelativeLayout>
+    </LinearLayout>
+    
+
+</RelativeLayout>

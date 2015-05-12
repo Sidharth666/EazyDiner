@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+    
+    <RelativeLayout
+        android:id="@+id/RlcontentEazyTrend"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/lowerButtonsEazyTrend"
+        android:background="@drawable/ic_background" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#55000000" >
+
+            <LinearLayout
+                android:id="@+id/near_and_searchEazyTrend"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="#000000"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="100" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="28.33" >
+
+                    <!-- <ImageView
+                        android:id="@+id/ivMapView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="22dip"
+                        android:padding="5dip"
+                        android:src="@drawable/mapicon_selector_effect" /> -->
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="33.33" >
+
+                    <!-- <ImageView
+                        android:id="@+id/ivSearchItemEazyTrends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="22dip"
+                        android:padding="5dip"
+                        android:src="@drawable/searchicon_selector_effect" /> -->
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="40.33" >
+
+                    <ImageView
+                        android:id="@+id/ivMenuEazyTrends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="22dip"
+                        android:padding="5dip"
+                        android:src="@drawable/menu_icon_grey" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/blk_lineEazyTrend"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/near_and_searchEazyTrend"
+                android:background="#AA000000" >
+            </FrameLayout>
+            
+            <RelativeLayout
+                android:id="@+id/eazytrands_list_header"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/blk_lineEazyTrend"
+                android:background="#99E5E5E5" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="12dip"
+                    android:layout_marginLeft="25dip"
+                    android:layout_marginTop="12dip"
+                    android:text="EAZYTRENDS"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/minus_white" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/lvItemEazyTrend"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/eazytrands_list_header" >
+            </ListView>
+
+            <LinearLayout
+                android:id="@+id/llSearchDetailsEazyTrend"
+                android:layout_width="fill_parent"
+                android:layout_height="35dip"
+                android:layout_below="@+id/blk_lineEazyTrend"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="100" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="15"
+                    android:background="#FFFFFF" >
+
+                    <TextView
+                        android:id="@+id/textSearchEazytrendsList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dip"
+                        android:text="CUISINE, LOCATION, KEYWORD" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="85"
+                    android:background="#FC4415" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/search_icon_white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lowerButtonsEazyTrend"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rlEazyTrendCall"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="#636364"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/eazy_conceirge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlHomeBtnBooknowEazyTrend"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="@color/theme_color"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/book_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

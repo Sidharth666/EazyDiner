@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#FC4415</color>
+    <color name="ext_list_color">#AAFFFFFF</color>
+    <color name="general_bg_color">#FFFFFF</color>
+    <color name="general_bg_color_old">#fcf6ec</color>
+    <color name="transparent">#00000000</color>
+</resources>

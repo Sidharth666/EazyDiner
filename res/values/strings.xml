@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EazyDiner</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="fb_app_id">320917718073942</string>
+    <string name="virs_verdicc">This may be the world’s most famous Indian restaurant; it
+certainly is among Delhi’s most expensive. Such
+celebrities as Bill Clinton and Bruce Springsteen have
+come here not just for the kebabs but for the raan (a
+tandoori leg of lamb), the dairy-rich Dal Bukhara, and
+tandoori chicken made as it should be, from small,
+free-range birds and with no food colour.</string>
+    <string name="address">Diplomatic Enclave, Sardar Patel Marg, New
+Delhi 110 021, India</string>
+    <string name="dateSliderTitle">Selected date</string>
+
+    <string-array name="booking_parson_spnarr">
+        <item>1 Person</item>
+        <item>2 People</item>
+        <item>3 People</item>
+        <item>4 People</item>
+        <item>5 and More People</item>
+    </string-array>
+
+    <string name="reviewText">It has broken all the rules of the
+restaurant game in the NCR. It is
+located in a glass pyramid, and
+rather than being shiny and new,
+it has the patina of a blah blah.
+It has broken all the rules of the restaurant game in the NCR. >></string>
+    <string name="vir_verdict">Vir Sanghvi is one of India’s leading journalists, former Editor-in-Chief of the Hindustan Times and a well-known TV anchor.His column Rude Food in Hindustan Times Brunch is the country’s most influential and widely-read food column. His book, Rude Food, a collection of his columns, won the Cointreau Award for Best Food Literature Book in the world in 2005. He has anchored many food TV shows on channels such as Travel and Living Channel (TLC) and NDTV and was lead judge for the international food TV competition, Foodistan. His TV shows have won numerous awards and continue to be watched by millions.</string>
+    <string name="phantom_verdict">Vir Sanghvi is one of India’s leading journalists, former Editor-in-Chief of the Hindustan Times and a well-known TV anchor.His column Rude Food in Hindustan Times Brunch is the country’s most influential and widely-read food column. His book, Rude Food, a collection of his columns, won the Cointreau Award for Best Food Literature Book in the world in 2005. He has anchored many food TV shows on channels such as Travel and Living Channel (TLC) and NDTV and was lead judge for the international food TV competition, Foodistan. His TV shows have won numerous awards and continue to be watched by millions.</string>
+    <string name="booking_condition">Always get a complimentary drink or a food item or a discount when you book through us in addition to earning Eazydiner loyalty points.</string>
+
+</resources>

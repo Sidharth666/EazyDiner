@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text1RemPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dip"
+        android:text="NOT YET AN EAZYDINER?" />
+
+    <TextView
+        android:id="@+id/text2RemPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dip"
+        android:text="Sign up and get"
+        android:textColor="#FC4415"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text3RemPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="3dip"
+        android:text="great deals!"
+        android:textColor="#FC4415"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dip"
+        android:clickable="true"
+        android:id="@+id/llSigninButtons"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:id="@+id/ivPopupReminderFbLogin"
+            android:layout_marginRight="25dip"
+            android:src="@drawable/fb_login" />
+
+        <ImageView
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:id="@+id/ivPopupReminderGpLogin" 
+            android:layout_marginRight="25dip"
+            android:src="@drawable/gplus_login" />
+
+        <ImageView
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:id="@+id/ivPopupReminderGenLogin"
+            android:src="@drawable/mail_background" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dip"
+        android:clickable="true"
+        android:id="@+id/llCancelPopup"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text4RemPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:text="NOT NOW, MAYBE LATER." />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBE2CF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvChainRestName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginLeft="25dip"
+                android:text="KFC" />
+
+            <TextView
+                android:id="@+id/tvChainRestSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginLeft="25dip"
+                android:text="Fast Food" />
+
+            <TextView
+                android:id="@+id/tvChainRestLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:textSize="10sp"
+                 android:layout_marginLeft="25dip"
+                android:text="Khan Market" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="12.70"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textChainRestCriticReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="CRITIC RATING" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tvChainRestCriticReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    android:text="23" />
+
+                <TextView
+                    android:id="@+id/tvChainRestCriticTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="/30" />
+            </LinearLayout>
+        </LinearLayout>
+        
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="25"
+             android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textChainRestUserReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginLeft="10dip"
+                android:text="USER RATING" />
+            
+			<ImageView 
+			    android:id="@+id/ivUserReviewImage"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:src="@drawable/one_star"
+			    android:layout_marginLeft="10dip"
+			    android:layout_marginTop="4dip"
+			    />
+			<RelativeLayout 
+			    android:layout_width="75dip"
+			    android:layout_height="25dip"
+			    >
+			    <TextView 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_alignParentBottom="true"
+			        android:textSize="10sp"
+			        android:text="1 Km"
+			        />
+			</RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

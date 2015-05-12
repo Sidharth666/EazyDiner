@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#44000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/flLine1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/etNameEditProf"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#00ffffff"
+                    android:enabled="false"
+                    android:gravity="center|left"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flLine2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMobileNumber"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:background="#00ffffff"
+                    android:gravity="center|left"
+                    android:text="+91 "
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/etMobileNumberEditProf"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#00ffffff"
+                    android:enabled="false"
+                    android:gravity="center|left"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flLine3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true" >
+
+                <EditText
+                    android:id="@+id/etEmailEditProf"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#00ffffff"
+                    android:enabled="false"
+                    android:gravity="center|left"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flLine4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPoint"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/tvPointsEditProf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/flLine5"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEditProfile"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvEditProfile"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center|right"
+                android:text="Edit Profile"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSaveProfile"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tvSaveProfile"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center|right"
+                android:text="Save Profile"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flLine6"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

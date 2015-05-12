@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="ga_sessionTimeout">300</integer>
+
+    <!-- Enable automatic Activity measurement -->
+    <bool name="ga_autoActivityTracking">true</bool>
+
+    <!-- The screen names that will appear in reports -->
+    <screenName name="com.easydiner.activities.HomeActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.UserReviewdetailsActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.AlllistActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.BooknowPopupActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.BookRestaurentActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.CriticDetailsActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.DashboardActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.DashboardHomeActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.EazyTrendDetailsActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.ForgetPasswordActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.GalleryActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.LandingActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.SearchListActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.SigninActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.DashboardHomeActivity">
+    </screenName>
+    <screenName name="com.easydiner.activities.UserReviewdetailsActivity">
+    </screenName>
+    <screenName name="com.easydiner.fragment.AlllistFragment">
+    </screenName>
+    <screenName name="com.easydiner.fragment.DetailsFragment">
+    </screenName>
+    <screenName name="com.easydiner.fragment.MapFragment">
+    </screenName>
+    <screenName name="com.easydiner.fragment.ProfileEditFragment">
+    </screenName>
+    <screenName name="com.easydiner.fragment.ReservitionDetailsFragment">
+    </screenName>
+    <screenName name="com.easydiner.fragment.WishlistFragment">
+    </screenName>
+    
+    <!--  The following value should be replaced with correct property id. -->
+    <string name="ga_trackingId">UA-61222599-2</string>
+</resources>

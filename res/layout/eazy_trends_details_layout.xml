@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/near_and_searchEazyTrendDetail"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_below="@+id/Rlalllistheader"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="28.33" >
+
+            <!-- <ImageView
+                android:id="@+id/ivMapViewEazyTrendDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="22dip"
+                android:padding="5dip"
+                android:src="@drawable/mapicon_selector_effect" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33.33" >
+
+            <!-- <ImageView
+                android:id="@+id/ivSearchItemEazyTrendDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dip"
+                android:padding="5dip"
+                android:src="@drawable/searchicon_selector_effect" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="40.33" >
+
+            <ImageView
+                android:id="@+id/ivMenuEazyTrendDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="5dip"
+                android:src="@drawable/menu_icon_grey" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivDetailEazyTrendsHeaderImage"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/DetailEazyTrendsLowerButtons"
+        android:layout_below="@+id/near_and_searchEazyTrendDetail"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_background" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/DetailEazyTrendsLowerButtons"
+        android:layout_below="@+id/near_and_searchEazyTrendDetail"
+        android:background="#AA000000"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/parentScrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#99000000" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="25dip"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tvDetailEazyTrendsName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:paddingBottom="5dip"
+                            android:text="The Dim Sum Explosion"
+                            android:textColor="#FFFFFF"
+                            android:textSize="25sp" />
+
+                        <TextView
+                            android:id="@+id/tvDetailEazyTrendsBody"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvEazyTrendsListHeading"
+                            android:layout_marginBottom="5dp"
+                            android:text="The Dim Sum Explosion"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="20dip"
+                    android:layout_marginLeft="25dip"
+                    android:layout_marginRight="25dip"
+                    android:layout_marginTop="20dip" >
+
+                    <TextView
+                        android:id="@+id/tvDetailEazyTrendsIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dip"
+                        android:lineSpacingMultiplier="1.20"
+                        android:text="@string/virs_verdicc"
+                        android:textColor="#DEDDD8" />
+
+                    <TextView
+                        android:id="@+id/tvEazyTrendsLikeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:paddingTop="8dip"
+                        android:text="0"
+                        android:textColor="#FFFFFF" />
+
+                    <ImageView
+                        android:id="@+id/ivEazyTrendsAddwishList"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dip"
+                        android:layout_toLeftOf="@+id/tvEazyTrendsLikeCount"
+                        android:src="@drawable/like_icon" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSearchDetailEazyTrends"
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_below="@+id/near_and_searchEazyTrendDetail"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="15"
+            android:background="#FFFFFF" >
+
+            <TextView
+                android:id="@+id/textSearchEazyTrendsDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dip"
+                android:text="CUISINE, LOCATION, KEYWORD" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="85"
+            android:background="#FC4415" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/search_icon_white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/DetailEazyTrendsLowerButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rlDetailEazyTrendsConcirgeCall"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="#636364"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/eazy_conceirge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RlDetailEazyTrendsBookNow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:background="@color/theme_color"
+            android:clickable="true" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/book_now" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bookNowLayout"
+    android:background="@drawable/slider_4" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_margin="15dip"
+	        android:layout_marginTop="12dip"
+	        android:paddingBottom="20dip"
+	        android:background="#66000000"
+	        android:orientation="vertical" >
+	
+	        <TextView
+	            android:id="@+id/tvBookingText1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginTop="15dip"
+	            android:text="Make a reservation &amp; get"
+	            android:textColor="#FFFFFF"
+	            android:textSize="23sp" />
+	
+	        <TextView
+	            android:id="@+id/tvBookingText2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:text="a free voucher!"
+	            android:textColor="#FFFFFF"
+	            android:textSize="23sp" />
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="20dip"
+	            android:id="@+id/llRestLayout"
+	            android:background="@drawable/textbox_back" >
+	
+	            <EditText
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="2dip"
+	                android:layout_marginLeft="8dip"
+	                android:layout_marginTop="2dip"
+	                android:id="@+id/etReaturentNameBooking"
+	                android:background="@drawable/textbox_search"
+	                android:hint="Restaurant Name"
+	                android:textColorHint="#000000"
+	                android:imeOptions="actionGo"
+	                android:singleLine="true" />
+	        </LinearLayout>
+	
+	        <TextView
+	            android:id="@+id/tvBookingText3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginTop="5dip"
+	            android:text="See our full list of restaurants here"
+	            android:textColor="#FFFFFF"
+	            android:textSize="18sp" />
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="10dip"
+	            android:background="@drawable/textbox_back" >
+	
+	            <EditText
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="2dip"
+	                android:layout_marginLeft="8dip"
+	                android:layout_marginTop="2dip"
+	                android:background="@drawable/textbox_search"  
+	                android:textColorHint="#000000"
+	                android:id="@+id/etNameBooking"
+	                android:hint="Name"
+	                android:singleLine="true" />
+	        </LinearLayout>
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="10dip"
+	            android:background="@drawable/textbox_back" >
+	
+	            <EditText
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="2dip"
+	                android:layout_marginLeft="8dip"
+	                android:layout_marginTop="2dip"
+	                android:background="@drawable/textbox_search"
+	                android:id="@+id/etMobileBooking"
+	                android:textColorHint="#000000"
+	                android:inputType="number"
+	                android:maxLength="10"
+	                android:hint="Mobile"
+	                android:singleLine="true" />
+	        </LinearLayout>
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="10dip"
+	            android:background="@drawable/textbox_back" >
+	
+	            <EditText
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="2dip"
+	                android:layout_marginLeft="8dip"
+	                android:layout_marginTop="2dip"
+	                android:textColorHint="#000000"
+	                android:background="@drawable/textbox_search"
+	                android:id="@+id/etEmailBooking"
+	                android:hint="E mail"
+	                android:singleLine="true" />
+	        </LinearLayout>
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="40dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="10dip"
+	            android:layout_gravity="center"
+	            android:orientation="horizontal" >
+	            
+	            <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="40"
+	            android:background="@drawable/textbox_back" >
+	
+		            <EditText
+		                android:id="@+id/etBookingDate"
+		                android:layout_width="fill_parent"
+		                android:layout_height="fill_parent"
+		                android:layout_marginLeft="5dip"
+		                android:layout_marginTop="2dip"
+			    android:layout_marginBottom="2dip"
+		                android:background="@drawable/textbox_search"
+		                android:clickable="true"
+		                android:editable="false"
+		                android:singleLine="true" />
+	            
+	            </LinearLayout>
+	            
+	             <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="44"
+	            android:background="@drawable/textbox_back" >
+	
+	            <EditText
+	                android:id="@+id/etBookingTime"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_marginTop="2dip"
+			    android:layout_marginBottom="2dip"
+	                android:background="@drawable/textbox_search"
+	                android:layout_marginLeft="5dip"
+	                android:clickable="true"
+	                android:editable="false"
+	                android:singleLine="true" />
+	             
+	            </LinearLayout>
+	
+	            <Spinner
+	                android:id="@+id/spnBookingPersonNo"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_marginLeft="5dip"
+	                android:layout_weight="40"
+	                android:entries="@array/booking_parson_spnarr"
+	                android:background="@drawable/textbox_search"
+	                android:clickable="true"
+	                android:hint="2 people"
+	                android:singleLine="true" />
+	        </LinearLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/rlSlideBookNow"
+	            android:layout_width="130dp"
+	            android:layout_height="40dp"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginTop="20dip"
+	            android:background="@color/theme_color"
+	            android:clickable="true" >
+	
+	            <TextView
+	                android:id="@+id/tvBookingText4"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerInParent="true"
+	                android:layout_marginTop="15dip"
+	                android:text="BOOK"
+	                android:textColor="#FFFFFF"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	        </RelativeLayout>
+	    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

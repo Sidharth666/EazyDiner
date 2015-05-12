@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#B3827E7C"
+    >
+        <TextView
+	        android:id="@+id/expListItem"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="17dip"
+	        android:paddingTop="15dp"
+	        android:textColor="#FFFFFF"
+	        android:paddingBottom="15dp"
+	        android:paddingLeft="25dip"
+	        android:layout_marginLeft="60dip" />
+   
+		<FrameLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dip"
+		    android:background="#FFFFFF"
+		    ></FrameLayout>
+</LinearLayout>
