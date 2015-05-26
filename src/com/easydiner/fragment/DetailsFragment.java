@@ -67,6 +67,7 @@ import com.classes.ImageRoundCropp;
 import com.classes.JsonobjectPost;
 import com.classes.PostObject;
 import com.classes.Pref;
+import com.classes.Utils;
 import com.easydiner.R;
 import com.easydiner.activities.DetailsActivity;
 import com.easydiner.activities.GalleryActivity;
@@ -94,7 +95,8 @@ import com.sromku.simple.fb.listeners.OnProfileListener;
 
 @SuppressLint("ClickableViewAccessibility")
 public class DetailsFragment extends Fragment implements AnimationListener,
-		ConnectionCallbacks, OnConnectionFailedListener ,TimeoutDialogTryAgainListener{
+		ConnectionCallbacks, OnConnectionFailedListener,
+		TimeoutDialogTryAgainListener {
 
 	private RatingBar foodRating;
 	private EditText etUserReviewsSubject, etUserReviews;
@@ -114,10 +116,13 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	protected static final int CAMERA_REQUEST = 2;
 	protected static final int GALLERY_PICTURE = 1;
 	private Intent pictureActionIntent;
-	private RelativeLayout rlUserRatingArea, rlEazydealLayout, rlImageGallery,rlPostReviews, rlRestaurantMenu;
-	private LinearLayout details_review, llCriticReviewsDetails,llBtnContainer, llHotelState, llUserReviewsArea, llContactDetails;
+	private RelativeLayout rlUserRatingArea, rlEazydealLayout, rlImageGallery,
+			rlPostReviews, rlRestaurantMenu;
+	private LinearLayout details_review, llCriticReviewsDetails,
+			llBtnContainer, llHotelState, llUserReviewsArea, llContactDetails;
 	private static final int SELECT_PICTURE = 1;
-	private String imagePath = "", picturePath = "not in there",userRating = "0.0";
+	private String imagePath = "", picturePath = "not in there",
+			userRating = "0.0";
 	private Bitmap imgbitmap, roundimgbitmap;
 	private ImageCompressCropp objCompressCropp;
 	private ImageRoundCropp objRoundCropp;
@@ -197,13 +202,14 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	private ArrayList<UserReviewList> arrayList;
 	private ArrayList<String> imgList, menuList;
 	private Animation sequentialAnimOne, sequentialAnimTwo, smallZoom;
-	private int flagLike = 0, flagShare = 0, noOfReviews = 0,noOfPhotos = 0;
+	private int flagLike = 0, flagShare = 0, noOfReviews = 0, noOfPhotos = 0;
 	public int reservable;
 	private String profImageWhole;
 	private CommonFunction _comFunc;
 	private HashMap<String, String> userReviewDetails;
 	private ConnectionDetector _connectionDetector;
-	private String monthArray[] = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+	private String monthArray[] = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+			"JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
 	private SimpleFacebook simpleFB;
 	private AlertDialog dialogAuthLogin;
 	private static final int RC_SIGN_IN = 0;
@@ -222,32 +228,48 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		final View rootView = inflater.inflate(R.layout.details_fragment_layout, container, false);
-		
-		Tracker t = ((EasydinerClass) getActivity().getApplication()).getTracker(EasydinerClass.TrackerName.APP_TRACKER);
+		final View rootView = inflater.inflate(
+				R.layout.details_fragment_layout, container, false);
+
+		Tracker t = ((EasydinerClass) getActivity().getApplication())
+				.getTracker(EasydinerClass.TrackerName.APP_TRACKER);
 		t.setScreenName("DetailsFragment");
-	    t.send(new HitBuilders.ScreenViewBuilder().build());
-	    
+		t.send(new HitBuilders.ScreenViewBuilder().build());
+
 		con = getActivity();
 		setTextFont(rootView);
 		foodRating = (RatingBar) rootView.findViewById(R.id.userRating);
-		ivGetCameraStart = (ImageView) rootView.findViewById(R.id.ivGetCameraStart);
+		ivGetCameraStart = (ImageView) rootView
+				.findViewById(R.id.ivGetCameraStart);
 		ivProfileImg = (ImageView) rootView.findViewById(R.id.ivProfileImg);
-		tvUserReviewDetails = (ImageView) rootView.findViewById(R.id.tvUserReviewDetails);
+		tvUserReviewDetails = (ImageView) rootView
+				.findViewById(R.id.tvUserReviewDetails);
 		ivHeaderImage = (ImageView) rootView.findViewById(R.id.ivHeaderImage);
-		ivPriceImageDetails = (ImageView) rootView.findViewById(R.id.ivPriceImageDetails);
-		rlUserRatingArea = (RelativeLayout) rootView.findViewById(R.id.rlUserRatingArea);
-		llUserReviewsArea = (LinearLayout) rootView.findViewById(R.id.llUserReviewsArea);
-		details_review = (LinearLayout) rootView.findViewById(R.id.details_review);
-		ivDetailsReviews = (ImageView) rootView.findViewById(R.id.ivDetailsReviews);
-		rlEazydealLayout = (RelativeLayout) rootView.findViewById(R.id.rlEazydealLayout);
-		rlImageGallery = (RelativeLayout) rootView.findViewById(R.id.rlImageGallery);
-		rlPostReviews = (RelativeLayout) rootView.findViewById(R.id.rlPostReviews);
-		rlRestaurantMenu = (RelativeLayout) rootView.findViewById(R.id.rlRestaurantMenu);
-		llCriticReviewsDetails = (LinearLayout) rootView.findViewById(R.id.llCriticReviewsDetails);
+		ivPriceImageDetails = (ImageView) rootView
+				.findViewById(R.id.ivPriceImageDetails);
+		rlUserRatingArea = (RelativeLayout) rootView
+				.findViewById(R.id.rlUserRatingArea);
+		llUserReviewsArea = (LinearLayout) rootView
+				.findViewById(R.id.llUserReviewsArea);
+		details_review = (LinearLayout) rootView
+				.findViewById(R.id.details_review);
+		ivDetailsReviews = (ImageView) rootView
+				.findViewById(R.id.ivDetailsReviews);
+		rlEazydealLayout = (RelativeLayout) rootView
+				.findViewById(R.id.rlEazydealLayout);
+		rlImageGallery = (RelativeLayout) rootView
+				.findViewById(R.id.rlImageGallery);
+		rlPostReviews = (RelativeLayout) rootView
+				.findViewById(R.id.rlPostReviews);
+		rlRestaurantMenu = (RelativeLayout) rootView
+				.findViewById(R.id.rlRestaurantMenu);
+		llCriticReviewsDetails = (LinearLayout) rootView
+				.findViewById(R.id.llCriticReviewsDetails);
 		llHotelState = (LinearLayout) rootView.findViewById(R.id.llHotelState);
-		llBtnContainer = (LinearLayout) rootView.findViewById(R.id.llBtnContainer);
-		llContactDetails = (LinearLayout) rootView.findViewById(R.id.llContactDetails);
+		llBtnContainer = (LinearLayout) rootView
+				.findViewById(R.id.llBtnContainer);
+		llContactDetails = (LinearLayout) rootView
+				.findViewById(R.id.llContactDetails);
 		imgList = new ArrayList<String>();
 		menuList = new ArrayList<String>();
 		btnLike = (ImageView) rootView.findViewById(R.id.btnLike);
@@ -260,9 +282,12 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 		 * R.anim.zoom_out); zoomIn =
 		 * AnimationUtils.loadAnimation(getActivity(), R.anim.zoom_in);
 		 */
-		sequentialAnimOne = AnimationUtils.loadAnimation(getActivity(),R.anim.sequential_amin);
-		sequentialAnimTwo = AnimationUtils.loadAnimation(getActivity(),R.anim.sequential_amin);
-		smallZoom = AnimationUtils.loadAnimation(getActivity(),R.anim.small_zoom_out);
+		sequentialAnimOne = AnimationUtils.loadAnimation(getActivity(),
+				R.anim.sequential_amin);
+		sequentialAnimTwo = AnimationUtils.loadAnimation(getActivity(),
+				R.anim.sequential_amin);
+		smallZoom = AnimationUtils.loadAnimation(getActivity(),
+				R.anim.small_zoom_out);
 
 		sequentialAnimOne.setAnimationListener(this);
 		sequentialAnimTwo.setAnimationListener(this);
@@ -284,24 +309,29 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 				.getApplicationContext()).addConnectionCallbacks(this)
 				.addOnConnectionFailedListener(this).addApi(Plus.API)
 				.addScope(Plus.SCOPE_PLUS_LOGIN).build();
-		final String userReviewsSubjectHint = etUserReviewsSubject.getHint().toString();
+		final String userReviewsSubjectHint = etUserReviewsSubject.getHint()
+				.toString();
 		final String userReviewsHint = etUserReviews.getHint().toString();
 		/*
 		 * ivHeaderImage.setScaleType(ImageView.ScaleType.FIT_XY);
 		 * imageLoader.DisplayImage(_pref.getString("itemImage", ""),
 		 * ivHeaderImage);
 		 */
-		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+		getActivity().getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		if (_connectionDetector.isConnectingToInternet()) {
 			loadDetails();
 		} else {
-			Toast.makeText(getActivity(), "No internet connection available",Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "No internet connection available",
+					Toast.LENGTH_LONG).show();
 		}
 
-		foodRating.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+		foodRating
+				.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 
 					@Override
-					public void onRatingChanged(RatingBar ratingBar,float rating, boolean fromUser) {
+					public void onRatingChanged(RatingBar ratingBar,
+							float rating, boolean fromUser) {
 						userRating = Float.toString(rating);
 					}
 				});
@@ -338,8 +368,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 			@Override
 			public void onClick(View v) {
-				_pEditor.putString("postRevSubject", etUserReviewsSubject.getText().toString());
-				_pEditor.putString("postRev", etUserReviews.getText().toString());
+				_pEditor.putString("postRevSubject", etUserReviewsSubject
+						.getText().toString());
+				_pEditor.putString("postRev", etUserReviews.getText()
+						.toString());
 				_pEditor.commit();
 				startDialog();
 			}
@@ -354,8 +386,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 				} else {
 					flagLike = 1;
 					flagShare = 0;
-					int lkCnt = Integer.parseInt(tvLikeCount.getText().toString());
-					if (_pref.getString("like_" + restaurantId, "").equalsIgnoreCase("0")) {
+					int lkCnt = Integer.parseInt(tvLikeCount.getText()
+							.toString());
+					if (_pref.getString("like_" + restaurantId, "")
+							.equalsIgnoreCase("0")) {
 						_pEditor.putString("like_" + restaurantId, "1");
 						lkCnt++;
 					} else {
@@ -370,10 +404,13 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					JSONObject jsonObject2 = new JSONObject();
 
 					try {
-						jsonObject2.put(TAG_ACCESSTOKN,_pref.getString("accessToken", ""));
+						jsonObject2.put(TAG_ACCESSTOKN,
+								_pref.getString("accessToken", ""));
 						jsonObject2.put(TAG_RESTAURANTID, restaurantId);
-						jsonObject2.put(TAG_USERID,_pref.getString("membershipNo", ""));
-						jsonObject2.put(TAG_STATUS,_pref.getString("like_" + restaurantId, ""));
+						jsonObject2.put(TAG_USERID,
+								_pref.getString("membershipNo", ""));
+						jsonObject2.put(TAG_STATUS,
+								_pref.getString("like_" + restaurantId, ""));
 						jsonObjectWishLike.put(TAG_GETITEM, jsonObject2);
 
 						Log.v("input data", jsonObject2.toString());
@@ -397,8 +434,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 				} else {
 					flagLike = 0;
 					flagShare = 1;
-					int wsklstCnt = Integer.parseInt(tvShareCount.getText().toString());
-					if (_pref.getString("share_" + restaurantId, "").equalsIgnoreCase("0")) {
+					int wsklstCnt = Integer.parseInt(tvShareCount.getText()
+							.toString());
+					if (_pref.getString("share_" + restaurantId, "")
+							.equalsIgnoreCase("0")) {
 						_pEditor.putString("share_" + restaurantId, "1");
 						wsklstCnt++;
 					} else {
@@ -413,10 +452,13 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					JSONObject jsonObject2 = new JSONObject();
 
 					try {
-						jsonObject2.put(TAG_ACCESSTOKN,_pref.getString("accessToken", ""));
+						jsonObject2.put(TAG_ACCESSTOKN,
+								_pref.getString("accessToken", ""));
 						jsonObject2.put(TAG_RESTAURANTID, restaurantId);
-						jsonObject2.put(TAG_USERID,_pref.getString("membershipNo", ""));
-						jsonObject2.put(TAG_STATUS,_pref.getString("share_" + restaurantId, ""));
+						jsonObject2.put(TAG_USERID,
+								_pref.getString("membershipNo", ""));
+						jsonObject2.put(TAG_STATUS,
+								_pref.getString("share_" + restaurantId, ""));
 						jsonObjectWishLike.put(TAG_GETITEM, jsonObject2);
 
 						Log.v("input data", jsonObjectWishLike.toString());
@@ -440,30 +482,56 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 				} else {
 					HashMap<String, PostObject> _postMap = new HashMap<String, PostObject>();
 
-					if (etUserReviewsSubject.getText().toString().equalsIgnoreCase("")) {
-						Toast.makeText(getActivity(),"Please give the subject of post",Toast.LENGTH_LONG).show();
+					if (etUserReviewsSubject.getText().toString()
+							.equalsIgnoreCase("")) {
+						Toast.makeText(getActivity(),
+								"Please give the subject of post",
+								Toast.LENGTH_LONG).show();
 					} else if (userRating.equals("0.0")) {
-						Toast.makeText(getActivity(),"Please give rating for post",Toast.LENGTH_LONG).show();
-					} else if (etUserReviews.getText().toString().equalsIgnoreCase("")) {
-						Toast.makeText(getActivity(),"Please give the content of post",Toast.LENGTH_LONG).show();
+						Toast.makeText(getActivity(),
+								"Please give rating for post",
+								Toast.LENGTH_LONG).show();
+					} else if (etUserReviews.getText().toString()
+							.equalsIgnoreCase("")) {
+						Toast.makeText(getActivity(),
+								"Please give the content of post",
+								Toast.LENGTH_LONG).show();
+					} else if (Utils.countWords(etUserReviews.getText()
+							.toString()) < 50) {
+						Toast.makeText(
+								getActivity(),
+								"Content of the review should not be less than 50 words",
+								Toast.LENGTH_LONG).show();
 					} else {
 
-						_postMap.put("subject", _comFunc.getPostObject(etUserReviewsSubject.getText().toString(),false));
+						_postMap.put("subject", _comFunc.getPostObject(
+								etUserReviewsSubject.getText().toString(),
+								false));
 
-						_postMap.put("review", _comFunc.getPostObject(etUserReviews.getText().toString(), false));
+						_postMap.put("review", _comFunc.getPostObject(
+								etUserReviews.getText().toString(), false));
 
-						_postMap.put("acessToken", _comFunc.getPostObject(_pref.getString("accessToken", ""), false));
+						_postMap.put("acessToken", _comFunc.getPostObject(
+								_pref.getString("accessToken", ""), false));
 
-						_postMap.put("userId", _comFunc.getPostObject(_pref.getString("membershipNo", ""), false));
+						_postMap.put("userId", _comFunc.getPostObject(
+								_pref.getString("membershipNo", ""), false));
 
-						_postMap.put("myRating",_comFunc.getPostObject(userRating, false));
+						_postMap.put("myRating",
+								_comFunc.getPostObject(userRating, false));
 
-						_postMap.put("restaurantId",_comFunc.getPostObject(restaurantId, false));
+						_postMap.put("restaurantId",
+								_comFunc.getPostObject(restaurantId, false));
 
-						_postMap.put("image_no", _comFunc.getPostObject(String.valueOf(Constant.imgSelected.size()),false));
+						_postMap.put("image_no", _comFunc.getPostObject(
+								String.valueOf(Constant.imgSelected.size()),
+								false));
 
 						for (int i = 0; i < Constant.imgSelected.size(); i++) {
-							_postMap.put("image." + i,_comFunc.getPostObject(Constant.imgSelected.get(i), true));
+							_postMap.put(
+									"image." + i,
+									_comFunc.getPostObject(
+											Constant.imgSelected.get(i), true));
 						}
 
 						/*
@@ -471,7 +539,9 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						 * "http://205.147.110.243/admin_dev/index.php/alluser/testImage"
 						 * , _postMap, _profileChangeAsync, true);
 						 */
-						_comFunc.callPostWebservice(Constant.BASE_URL+ "PostUserReviews", _postMap,_profileChangeAsync, true);
+						_comFunc.callPostWebservice(Constant.BASE_URL
+								+ "PostUserReviews", _postMap,
+								_profileChangeAsync, true);
 					}
 				}
 			}
@@ -481,7 +551,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(getActivity(),ImageZoomGalleryActivity.class);
+				Intent i = new Intent(getActivity(),
+						ImageZoomGalleryActivity.class);
 				i.putStringArrayListExtra("manuImage", menuList);
 				i.putExtra("rest_id", restaurantId);
 				i.putExtra("isMenu", true);
@@ -508,27 +579,34 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+		final InputMethodManager imm = (InputMethodManager) getActivity()
+				.getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 	}
 
 	private void startDialog() {
-		AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(getActivity());
+		AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(
+				getActivity());
 		myAlertDialog.setTitle("Upload Pictures Option");
 		myAlertDialog.setMessage("How do you want to set your picture?");
 
-		myAlertDialog.setPositiveButton("Gallery",new DialogInterface.OnClickListener() {
+		myAlertDialog.setPositiveButton("Gallery",
+				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface arg0, int arg1) {
 
-						Intent intent = new Intent(getActivity(),ImageSelectorActivity.class);
+						Intent intent = new Intent(getActivity(),
+								ImageSelectorActivity.class);
 						startActivity(intent);
 					}
 				});
 
-		myAlertDialog.setNegativeButton("Camera",new DialogInterface.OnClickListener() {
+		myAlertDialog.setNegativeButton("Camera",
+				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface arg0, int arg1) {
-						pictureActionIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-						startActivityForResult(pictureActionIntent,CAMERA_REQUEST);
+						pictureActionIntent = new Intent(
+								android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+						startActivityForResult(pictureActionIntent,
+								CAMERA_REQUEST);
 					}
 				});
 		myAlertDialog.show();
@@ -536,19 +614,23 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 	private void showRemainderPopup() {
 		dialog = new Dialog(getActivity());
-		
-		Display display = getActivity().getWindowManager().getDefaultDisplay(); 
-		int width = display.getWidth();  // deprecated
+
+		Display display = getActivity().getWindowManager().getDefaultDisplay();
+		int width = display.getWidth(); // deprecated
 		int height = display.getHeight();
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.remainder_popup_layout);
-		
-//		dialog.setTitle(R.id.dialog_title);
-		dialog.getWindow().setLayout((width*4)/5, (height*2)/4);
-		LinearLayout llCancelPopup = (LinearLayout) dialog.findViewById(R.id.llCancelPopup);
-		ImageView ivPopupReminderFbLogin = (ImageView) dialog.findViewById(R.id.ivPopupReminderFbLogin);
-		ImageView ivPopupReminderGpLogin = (ImageView) dialog.findViewById(R.id.ivPopupReminderGpLogin);
-		ImageView ivPopupReminderGenLogin = (ImageView) dialog.findViewById(R.id.ivPopupReminderGenLogin);
+
+		// dialog.setTitle(R.id.dialog_title);
+		dialog.getWindow().setLayout((width * 4) / 5, (height * 2) / 4);
+		LinearLayout llCancelPopup = (LinearLayout) dialog
+				.findViewById(R.id.llCancelPopup);
+		ImageView ivPopupReminderFbLogin = (ImageView) dialog
+				.findViewById(R.id.ivPopupReminderFbLogin);
+		ImageView ivPopupReminderGpLogin = (ImageView) dialog
+				.findViewById(R.id.ivPopupReminderGpLogin);
+		ImageView ivPopupReminderGenLogin = (ImageView) dialog
+				.findViewById(R.id.ivPopupReminderGenLogin);
 
 		llCancelPopup.setOnClickListener(new OnClickListener() {
 
@@ -562,7 +644,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 			@Override
 			public void onClick(View v) {
-				dialogAuthLogin = CustomAlertProgressDialog.getCustomDialog(getActivity(),"Please wait...");
+				dialogAuthLogin = CustomAlertProgressDialog.getCustomDialog(
+						getActivity(), "Please wait...");
 				dialogAuthLogin.show();
 				simpleFB.login(onLoginListener);
 			}
@@ -574,7 +657,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				mSignInClicked = true;
-				dialogAuthLogin = CustomAlertProgressDialog.getCustomDialog(getActivity(),"Please wait...");
+				dialogAuthLogin = CustomAlertProgressDialog.getCustomDialog(
+						getActivity(), "Please wait...");
 				dialogAuthLogin.show();
 				mGoogleApiClient.connect();
 
@@ -605,7 +689,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			jsonObject1.put(TAG_GETITEM, jsonObject2);
 
 			nameValuePairs = new ArrayList<NameValuePair>(2);
-			nameValuePairs.add(new BasicNameValuePair("data", jsonObject1.toString()));
+			nameValuePairs.add(new BasicNameValuePair("data", jsonObject1
+					.toString()));
 			ListAstClass listAstClass = new ListAstClass();
 			listAstClass.execute("");
 		} catch (Exception e) {
@@ -644,11 +729,13 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			}
 		}
 
-		if (requestCode == GALLERY_PICTURE && resultCode == getActivity().RESULT_OK && data != null) {
+		if (requestCode == GALLERY_PICTURE
+				&& resultCode == getActivity().RESULT_OK && data != null) {
 			Uri selectedImage = data.getData();
 			String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-			Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+			Cursor cursor = getActivity().getContentResolver().query(
+					selectedImage, filePathColumn, null, null, null);
 			cursor.moveToFirst();
 
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -661,7 +748,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			roundimgbitmap = objRoundCropp.getCroppedBitmap(imgbitmap);
 
 			ivProfileImg.setImageBitmap(roundimgbitmap);
-		} else if (requestCode == CAMERA_REQUEST && resultCode == getActivity().RESULT_OK && data != null) {
+		} else if (requestCode == CAMERA_REQUEST
+				&& resultCode == getActivity().RESULT_OK && data != null) {
 			Bitmap camBitmap = (Bitmap) data.getExtras().get("data");
 
 			Uri uriImgPath = objCompressCropp.getImageUri(camBitmap);
@@ -724,7 +812,9 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						jsonObject2.put(TAG_EMAIL, response.getEmail());
 						jsonObject2.put(TAG_TYPE, "fb");
 						jsonObject2.put(TAG_AUTHID, response.getId());
-						jsonObject2.put(TAG_USRIMG,"http://graph.facebook.com/" + response.getId()+ "/picture?type=large");
+						jsonObject2.put(TAG_USRIMG,
+								"http://graph.facebook.com/" + response.getId()
+										+ "/picture?type=large");
 						jsonObject2.put(TAG_SCLNME, response.getName());
 						jsonObject1.put(TAG_OAUTHDTLS, jsonObject2);
 						AstClassOuthLogin astClassOuthLogin = new AstClassOuthLogin();
@@ -741,7 +831,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 		private AlertDialog dialog;
 
 		public ListAstClass() {
-			dialog = CustomAlertProgressDialog.getCustomDialog(getActivity(),"Please wait...");
+			dialog = CustomAlertProgressDialog.getCustomDialog(getActivity(),
+					"Please wait...");
 			dialog.show();
 		}
 
@@ -753,7 +844,9 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 				JsonobjectPost j_parser = new JsonobjectPost();
 
-				jObjList = j_parser.getJSONObj(Constant.BASE_URL+ "getitemdetail", nameValuePairs,jsonObject1.toString());
+				jObjList = j_parser.getJSONObj(Constant.BASE_URL
+						+ "getitemdetail", nameValuePairs,
+						jsonObject1.toString());
 
 			} catch (Exception e) {
 				Log.v("Exception", e.toString());
@@ -795,15 +888,18 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 					for (int imgCount = 0; imgCount < imgArray.length(); imgCount++) {
 						JSONObject _jsonitem = imgArray.getJSONObject(imgCount);
-						String imgUrl = _jsonitem.getString(TAG_IMAGE).replaceAll(" ", "%20");
+						String imgUrl = _jsonitem.getString(TAG_IMAGE)
+								.replaceAll(" ", "%20");
 						imgList.add(imgUrl);
 					}
 
 					if (menuArray.length() > 0) {
 						rlRestaurantMenu.setVisibility(View.VISIBLE);
 						for (int imgCount = 0; imgCount < menuArray.length(); imgCount++) {
-							JSONObject _jsonitem = menuArray.getJSONObject(imgCount);
-							String imgUrl = _jsonitem.getString(TAG_MENUPAGE_URL).replaceAll(" ", "%20");
+							JSONObject _jsonitem = menuArray
+									.getJSONObject(imgCount);
+							String imgUrl = _jsonitem.getString(
+									TAG_MENUPAGE_URL).replaceAll(" ", "%20");
 							menuList.add(imgUrl);
 						}
 					} else {
@@ -816,61 +912,82 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						llCriticReviewsDetails.setVisibility(View.VISIBLE);
 					} else {
 						llCriticReviewsDetails.setVisibility(View.INVISIBLE);
-						llHotelState.setBackgroundColor(Color.parseColor("#E6E6E6"));
-						llBtnContainer.setBackgroundColor(Color.parseColor("#E6E6E6"));
-						details_review.setBackgroundColor(Color.parseColor("#E6E6E6"));
-						rlImageGallery.setBackgroundResource(R.drawable.menu_image_grey);
-						rlRestaurantMenu.setBackgroundResource(R.drawable.menu_image_grey);
+						llHotelState.setBackgroundColor(Color
+								.parseColor("#E6E6E6"));
+						llBtnContainer.setBackgroundColor(Color
+								.parseColor("#E6E6E6"));
+						details_review.setBackgroundColor(Color
+								.parseColor("#E6E6E6"));
+						rlImageGallery
+								.setBackgroundResource(R.drawable.menu_image_grey);
+						rlRestaurantMenu
+								.setBackgroundResource(R.drawable.menu_image_grey);
 					}
 					reservable = listItem.getInt(TAG_RESERVABLE);
 
 					if (reservable == 1) {
-						((DetailsActivity) getActivity()).restaurantName = listItem.getString(TAG_NAME);
-						((DetailsActivity) getActivity()).restaurantId = Integer.parseInt(listItem.getString(TAG_ID));
-						if (!listItem.getString(TAG_EAZY_DEALS).equalsIgnoreCase("")) {
-							((DetailsActivity) getActivity()).restaurantDeals = listItem.getString(TAG_EAZY_DEALS);
+						((DetailsActivity) getActivity()).restaurantName = listItem
+								.getString(TAG_NAME);
+						((DetailsActivity) getActivity()).restaurantId = Integer
+								.parseInt(listItem.getString(TAG_ID));
+						if (!listItem.getString(TAG_EAZY_DEALS)
+								.equalsIgnoreCase("")) {
+							((DetailsActivity) getActivity()).restaurantDeals = listItem
+									.getString(TAG_EAZY_DEALS);
 						} else {
 							((DetailsActivity) getActivity()).restaurantDeals = "";
 						}
 					} else {
-						RelativeLayout rlDetailBookNow = (RelativeLayout) getActivity().findViewById(R.id.RlDetailBookNow);
-						rlDetailBookNow.setBackgroundColor(Color.parseColor("#9B9A9A"));
+						RelativeLayout rlDetailBookNow = (RelativeLayout) getActivity()
+								.findViewById(R.id.RlDetailBookNow);
+						rlDetailBookNow.setBackgroundColor(Color
+								.parseColor("#9B9A9A"));
 						rlDetailBookNow.setClickable(false);
 						((DetailsActivity) getActivity()).restaurantName = "";
 						((DetailsActivity) getActivity()).restaurantId = 0;
-						if (!listItem.getString(TAG_EAZY_DEALS).equalsIgnoreCase("")) {
-							((DetailsActivity) getActivity()).restaurantDeals = listItem.getString(TAG_EAZY_DEALS);
+						if (!listItem.getString(TAG_EAZY_DEALS)
+								.equalsIgnoreCase("")) {
+							((DetailsActivity) getActivity()).restaurantDeals = listItem
+									.getString(TAG_EAZY_DEALS);
 						} else {
 							((DetailsActivity) getActivity()).restaurantDeals = "";
 						}
 					}
 
-					String addressArray[] = listItem.getString(TAG_ADDRESS).split(",");
-					if (!listItem.getString(TAG_EAZY_DEALS).equalsIgnoreCase("")) {
-						tvEazyDealsDetails.setText("EAZYDEAL: "+ listItem.getString(TAG_EAZY_DEALS));
+					String addressArray[] = listItem.getString(TAG_ADDRESS)
+							.split(",");
+					if (!listItem.getString(TAG_EAZY_DEALS)
+							.equalsIgnoreCase("")) {
+						tvEazyDealsDetails.setText("EAZYDEAL: "
+								+ listItem.getString(TAG_EAZY_DEALS));
 						rlEazydealLayout.setVisibility(View.VISIBLE);
 					}
 					/*
 					 * tvFstAddtessDetails.setText(addressArray[0] + "," +
 					 * addressArray[1] + ",");
 					 */
-					tvFstAddtessDetails.setText(listItem.getString(TAG_ADDRESS));
+					tvFstAddtessDetails
+							.setText(listItem.getString(TAG_ADDRESS));
 					if (addressArray.length > 3) {
-						tvSndAddtessDetails.setText(addressArray[2] + ","+ addressArray[3]);
-					} else if(addressArray.length == 3){
+						tvSndAddtessDetails.setText(addressArray[2] + ","
+								+ addressArray[3]);
+					} else if (addressArray.length == 3) {
 						tvSndAddtessDetails.setText(addressArray[2] + ",");
-					}else{
+					} else {
 						tvSndAddtessDetails.setText(addressArray[0] + ",");
 					}
-					tvContactDetails.setText(listItem.getString(TAG_CONTACT_NO));
-					String timeArray[] = listItem.getString(TAG_OPENINGHOUR).split(",");
+					tvContactDetails
+							.setText(listItem.getString(TAG_CONTACT_NO));
+					String timeArray[] = listItem.getString(TAG_OPENINGHOUR)
+							.split(",");
 					tvLunchTimeDetails.setText("Lunch: " + timeArray[0]);
 					if (timeArray.length > 1) {
 						tvDinerTimeDetails.setText("Dinner: " + timeArray[1]);
 					} else {
 						tvDinerTimeDetails.setVisibility(View.GONE);
 					}
-					int person_no = Integer.parseInt(listItem.getString(TAG_NO_PEOPLE_PRICE));
+					int person_no = Integer.parseInt(listItem
+							.getString(TAG_NO_PEOPLE_PRICE));
 					String person_str = "";
 					switch (person_no) {
 					case 1:
@@ -895,44 +1012,64 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					}
 
 					if (Integer.parseInt(listItem.getString(TAG_COST)) <= 500) {
-						ivPriceImageDetails.setImageResource(R.drawable.price_1);
+						ivPriceImageDetails
+								.setImageResource(R.drawable.price_1);
 					} else if (Integer.parseInt(listItem.getString(TAG_COST)) <= 2000
 							&& Integer.parseInt(listItem.getString(TAG_COST)) >= 501) {
-						ivPriceImageDetails.setImageResource(R.drawable.price_2);
+						ivPriceImageDetails
+								.setImageResource(R.drawable.price_2);
 					} else if (Integer.parseInt(listItem.getString(TAG_COST)) <= 6000
 							&& Integer.parseInt(listItem.getString(TAG_COST)) >= 2001) {
-						ivPriceImageDetails.setImageResource(R.drawable.price_3);
+						ivPriceImageDetails
+								.setImageResource(R.drawable.price_3);
 					} else {
-						ivPriceImageDetails.setImageResource(R.drawable.price_4);
+						ivPriceImageDetails
+								.setImageResource(R.drawable.price_4);
 					}
 
-					tvPriceDetails.setText(person_str+ listItem.getString(TAG_COST));
-					tvCriticReviewDetails.setText(listItem.getString(TAG_CRITIC_RATING));
+					tvPriceDetails.setText(person_str
+							+ listItem.getString(TAG_COST));
+					tvCriticReviewDetails.setText(listItem
+							.getString(TAG_CRITIC_RATING));
 
 					ivHeaderImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
-					String insider_tip = listItem.getString(TAG_INSIDER_TIP).replace("</li><li>", "\r\n\r\u2022 ");
+					String insider_tip = listItem.getString(TAG_INSIDER_TIP)
+							.replace("</li><li>", "\r\n\r\u2022 ");
 					insider_tip = "\u2022 " + insider_tip;
 
 					tvInsiderTips.setText(insider_tip);
 
 					@SuppressWarnings("deprecation")
-					DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
-							.showImageForEmptyUri(R.drawable.default_image_details)
-							.showImageOnFail(R.drawable.default_image_details).showImageOnLoading(
-									R.drawable.default_image_details).resetViewBeforeLoading(true).build();
-					String restaurantImg = listItem.getString(TAG_IMAGE).replaceAll(" ", "%20");
-					imageLoader.displayImage(restaurantImg, ivHeaderImage,options);
+					DisplayImageOptions options = new DisplayImageOptions.Builder()
+							.cacheInMemory(true)
+							.cacheOnDisk(true)
+							.showImageForEmptyUri(
+									R.drawable.default_image_details)
+							.showImageOnFail(R.drawable.default_image_details)
+							.showImageOnLoading(
+									R.drawable.default_image_details)
+							.resetViewBeforeLoading(true).build();
+					String restaurantImg = listItem.getString(TAG_IMAGE)
+							.replaceAll(" ", "%20");
+					imageLoader.displayImage(restaurantImg, ivHeaderImage,
+							options);
 
-					_pEditor.putString("restaurent_lat",listItem.getString(TAG_LATITUDE));
-					_pEditor.putString("restaurent_long",listItem.getString(TAG_LONGITUDE));
-					_pEditor.putString("restaurent_name",listItem.getString(TAG_NAME));
-					_pEditor.putString("restaurent_type",listItem.getString(TAG_SPECIALITY));
-					_pEditor.putString("restaurent_location",listItem.getString(TAG_ADDRESS));
+					_pEditor.putString("restaurent_lat",
+							listItem.getString(TAG_LATITUDE));
+					_pEditor.putString("restaurent_long",
+							listItem.getString(TAG_LONGITUDE));
+					_pEditor.putString("restaurent_name",
+							listItem.getString(TAG_NAME));
+					_pEditor.putString("restaurent_type",
+							listItem.getString(TAG_SPECIALITY));
+					_pEditor.putString("restaurent_location",
+							listItem.getString(TAG_ADDRESS));
 
 					_pEditor.commit();
 
-					String critisName[] = listItem.getString(TAG_REVIEWED_BY).split(" ");
+					String critisName[] = listItem.getString(TAG_REVIEWED_BY)
+							.split(" ");
 					if (critisName.length > 1) {
 						tvReviewer.setText(critisName[0] + "\'s Verdict");
 					} else {
@@ -940,31 +1077,38 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					}
 					tvReviewDetails.setText(listItem.getString(TAG_REVIEW));
 
-					float rating = Float.parseFloat(listItem.getString(TAG_USER_RATING));
+					float rating = Float.parseFloat(listItem
+							.getString(TAG_USER_RATING));
 					int ratingInt = (int) rating;
 					switch (ratingInt) {
 					case 0:
-						tvUserReviewDetails.setImageResource(R.drawable.zero_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.zero_star);
 						break;
 
 					case 1:
-						tvUserReviewDetails.setImageResource(R.drawable.one_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.one_star);
 						break;
 
 					case 2:
-						tvUserReviewDetails.setImageResource(R.drawable.two_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.two_star);
 						break;
 
 					case 3:
-						tvUserReviewDetails.setImageResource(R.drawable.three_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.three_star);
 						break;
 
 					case 4:
-						tvUserReviewDetails.setImageResource(R.drawable.four_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.four_star);
 						break;
 
 					case 5:
-						tvUserReviewDetails.setImageResource(R.drawable.five_star);
+						tvUserReviewDetails
+								.setImageResource(R.drawable.five_star);
 						break;
 
 					default:
@@ -978,17 +1122,24 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						rlUserRatingArea.setVisibility(View.VISIBLE);
 						llUserReviewsArea.setVisibility(View.VISIBLE);
 						for (int k = 0; k < userReviewArray.length(); k++) {
-							JSONObject objReview = userReviewArray.getJSONObject(k);
+							JSONObject objReview = userReviewArray
+									.getJSONObject(k);
 							UserReviewList _item = new UserReviewList();
 							_item.setUserId(objReview.getInt(TAG_CUST_ID));
-							_item.setReviewSubject(objReview.getString(TAG_SUBJECT));
+							_item.setReviewSubject(objReview
+									.getString(TAG_SUBJECT));
 							_item.setAddress(objReview.getString(TAG_ADDRESS));
 							_item.setReviewOn(objReview.getInt(TAG_REVIEW_NO));
-							_item.setUserName(objReview.getString(TAG_USER_NAME));
-							_item.setUserImage(objReview.getString(TAG_USER_USER_IMAGE));
-							_item.setUserRating(objReview.getInt(TAG_USER_RATING));
-							_item.setUserReviews(objReview.getString(TAG_REVIEW));
-							_item.setReviewDate(objReview.getString(TAG_REVIEW_DATE));
+							_item.setUserName(objReview
+									.getString(TAG_USER_NAME));
+							_item.setUserImage(objReview
+									.getString(TAG_USER_USER_IMAGE));
+							_item.setUserRating(objReview
+									.getInt(TAG_USER_RATING));
+							_item.setUserReviews(objReview
+									.getString(TAG_REVIEW));
+							_item.setReviewDate(objReview
+									.getString(TAG_REVIEW_DATE));
 
 							arrayList.add(_item);
 						}
@@ -997,13 +1148,19 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 					}
 
-					if (_pref.getBoolean("itemReviewed", true) && !listItem.getString(TAG_REVIEW).equalsIgnoreCase("")) {
+					if (_pref.getBoolean("itemReviewed", true)
+							&& !listItem.getString(TAG_REVIEW)
+									.equalsIgnoreCase("")) {
 						details_review.setVisibility(View.VISIBLE);
 						ivDetailsReviews.setVisibility(View.VISIBLE);
 					}
 
-					if (_pref.getString("like_" + restaurantId, "").equalsIgnoreCase(null) || _pref.getString("like_" + restaurantId, "")
-									.equalsIgnoreCase("") || _pref.getString("like_" + restaurantId, "").equalsIgnoreCase("0")) {
+					if (_pref.getString("like_" + restaurantId, "")
+							.equalsIgnoreCase(null)
+							|| _pref.getString("like_" + restaurantId, "")
+									.equalsIgnoreCase("")
+							|| _pref.getString("like_" + restaurantId, "")
+									.equalsIgnoreCase("0")) {
 						Log.v("like", "0, " + restaurantId);
 						btnLike.setImageResource(R.drawable.like_icon);
 						_pEditor.putString("like_" + restaurantId, "0");
@@ -1015,8 +1172,12 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						_pEditor.commit();
 					}
 
-					if (_pref.getString("share_" + restaurantId, "").equalsIgnoreCase(null) || _pref.getString("share_" + restaurantId, "")
-									.equalsIgnoreCase("") || _pref.getString("share_" + restaurantId, "").equalsIgnoreCase("0")) {
+					if (_pref.getString("share_" + restaurantId, "")
+							.equalsIgnoreCase(null)
+							|| _pref.getString("share_" + restaurantId, "")
+									.equalsIgnoreCase("")
+							|| _pref.getString("share_" + restaurantId, "")
+									.equalsIgnoreCase("0")) {
 						Log.v("share", "0, " + restaurantId);
 						btnShare.setImageResource(R.drawable.like_star);
 						_pEditor.putString("share_" + restaurantId, "0");
@@ -1032,9 +1193,11 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						tvReviewCount.setText("1 User Review");
 
 					} else {
-						tvReviewCount.setText(String.valueOf(noOfReviews)+ " User Reviews");
+						tvReviewCount.setText(String.valueOf(noOfReviews)
+								+ " User Reviews");
 					}
-					tvPhotoCount.setText(String.valueOf(noOfPhotos) + " Photos");
+					tvPhotoCount
+							.setText(String.valueOf(noOfPhotos) + " Photos");
 					if (arrayList.size() > 0) {
 						llUserReviewsArea.setVisibility(View.VISIBLE);
 						loadUserReviewList();
@@ -1043,7 +1206,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					}
 
 				} else {
-					Toast.makeText(getActivity(), "No Item Available",Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), "No Item Available",
+							Toast.LENGTH_LONG).show();
 				}
 
 			} catch (JSONException e) {
@@ -1056,44 +1220,63 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 	private void setListFont(TextView tvView) {
 		String fontPath2 = "fonts/Aller_Rg.ttf";
-		Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(),fontPath2);
+		Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(),
+				fontPath2);
 		tvView.setTypeface(tf1);
 	}
 
 	private void setTextFont(View rootView) {
 		tvDetailsName = (TextView) rootView.findViewById(R.id.tvDetailsName);
 		tvDetailsType = (TextView) rootView.findViewById(R.id.tvDetailsType);
-		tvFstAddtessDetails = (TextView) rootView.findViewById(R.id.tvFstAddtessDetails);
-		tvSndAddtessDetails = (TextView) rootView.findViewById(R.id.tvSndAddtessDetails);
-		tvContactDetails = (TextView) rootView.findViewById(R.id.tvContactDetails);
-		tvLunchTimeDetails = (TextView) rootView.findViewById(R.id.tvLunchTimeDetails);
-		tvDinerTimeDetails = (TextView) rootView.findViewById(R.id.tvDinerTimeDetails);
+		tvFstAddtessDetails = (TextView) rootView
+				.findViewById(R.id.tvFstAddtessDetails);
+		tvSndAddtessDetails = (TextView) rootView
+				.findViewById(R.id.tvSndAddtessDetails);
+		tvContactDetails = (TextView) rootView
+				.findViewById(R.id.tvContactDetails);
+		tvLunchTimeDetails = (TextView) rootView
+				.findViewById(R.id.tvLunchTimeDetails);
+		tvDinerTimeDetails = (TextView) rootView
+				.findViewById(R.id.tvDinerTimeDetails);
 		tvPriceDetails = (TextView) rootView.findViewById(R.id.tvPriceDetails);
-		tvCriticReviewDetails = (TextView) rootView.findViewById(R.id.tvCriticReviewDetails);
+		tvCriticReviewDetails = (TextView) rootView
+				.findViewById(R.id.tvCriticReviewDetails);
 		tvReviewer = (TextView) rootView.findViewById(R.id.tvReviewer);
-		tvReviewDetails = (TextView) rootView.findViewById(R.id.tvReviewDetails);
-		textUserRatingDetails = (TextView) rootView.findViewById(R.id.textUserRatingDetails);
-		textTotalRatingDetails = (TextView) rootView.findViewById(R.id.textTotalRatingDetails);
-		textCriticRatingDetails = (TextView) rootView.findViewById(R.id.textCriticRatingDetails);
-		textEazyDealTag = (TextView) rootView.findViewById(R.id.textEazyDealTag);
+		tvReviewDetails = (TextView) rootView
+				.findViewById(R.id.tvReviewDetails);
+		textUserRatingDetails = (TextView) rootView
+				.findViewById(R.id.textUserRatingDetails);
+		textTotalRatingDetails = (TextView) rootView
+				.findViewById(R.id.textTotalRatingDetails);
+		textCriticRatingDetails = (TextView) rootView
+				.findViewById(R.id.textCriticRatingDetails);
+		textEazyDealTag = (TextView) rootView
+				.findViewById(R.id.textEazyDealTag);
 
-		tvEazyDealsDetails = (TextView) rootView.findViewById(R.id.tvEazyDealsDetails);
+		tvEazyDealsDetails = (TextView) rootView
+				.findViewById(R.id.tvEazyDealsDetails);
 		tvInsiderTips = (TextView) rootView.findViewById(R.id.tvInsiderTips);
-		textInsiderTipsHeading = (TextView) rootView.findViewById(R.id.textInsiderTipsHeading);
+		textInsiderTipsHeading = (TextView) rootView
+				.findViewById(R.id.textInsiderTipsHeading);
 		tvReviewCount = (TextView) rootView.findViewById(R.id.tvReviewCount);
 		tvPhotoCount = (TextView) rootView.findViewById(R.id.tvPhotoCount);
 		textMenu = (TextView) rootView.findViewById(R.id.textMenu);
 		textGallery = (TextView) rootView.findViewById(R.id.textGallery);
-		textReviewReating = (TextView) rootView.findViewById(R.id.textReviewReating);
-		etUserReviewsSubject = (EditText) rootView.findViewById(R.id.etUserReviewsSubject);
+		textReviewReating = (TextView) rootView
+				.findViewById(R.id.textReviewReating);
+		etUserReviewsSubject = (EditText) rootView
+				.findViewById(R.id.etUserReviewsSubject);
 		etUserReviews = (EditText) rootView.findViewById(R.id.etUserReviews);
 
 		String fontPath1 = "fonts/Aller_Bd.ttf";
 		String fontPath2 = "fonts/Aller_Rg.ttf";
 		String fontPath3 = "fonts/avenir-light.ttf";
-		Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(),fontPath1);
-		Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(),fontPath2);
-		Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(),fontPath3);
+		Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(),
+				fontPath1);
+		Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(),
+				fontPath2);
+		Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(),
+				fontPath3);
 
 		tvDetailsName.setTypeface(tf1);
 		tvDetailsType.setTypeface(tf2);
@@ -1126,52 +1309,63 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 		for (int i = 0; i < arrayList.size(); i++) {
 			final UserReviewList userReviewList = arrayList.get(i);
 			Activity myActivity = getActivity();
-			if(myActivity==null) return;
+			if (myActivity == null)
+				return;
 			LinearLayout parentLayout = new LinearLayout(getActivity());
 			parentLayout.setOrientation(LinearLayout.VERTICAL);
 			parentLayout.setPadding(25, 25, 25, 25);
 
-			LayoutParams linLayoutParam = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			LayoutParams linLayoutParam = new LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
 			LinearLayout childOneLayout = new LinearLayout(getActivity());
 			childOneLayout.setOrientation(LinearLayout.HORIZONTAL);
-			LayoutParams childOneLayoutParam = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+			LayoutParams childOneLayoutParam = new LayoutParams(
+					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
 
-			final CircularImageView userImg = new CircularImageView(getActivity());
+			final CircularImageView userImg = new CircularImageView(
+					getActivity());
 			// userImg.setImageResource(R.drawable.default_image_restaurant);
 
-			DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
+			DisplayImageOptions options = new DisplayImageOptions.Builder()
+					.cacheInMemory(true)
+					.cacheOnDisk(true)
 					.showImageOnLoading(R.drawable.default_image_for_circuler)
 					.showImageOnFail(R.drawable.default_image_for_circuler)
 					.showImageForEmptyUri(R.drawable.default_image_for_circuler)
 					.delayBeforeLoading(100).build();
-			imageLoader.displayImage(userReviewList.getUserImage(), userImg,options, new ImageLoadingListener() {
+			imageLoader.displayImage(userReviewList.getUserImage(), userImg,
+					options, new ImageLoadingListener() {
 
 						@Override
 						public void onLoadingStarted(String imageUri, View view) {
-							Animation anim = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+							Animation anim = AnimationUtils.loadAnimation(
+									getActivity(), android.R.anim.fade_in);
 							userImg.setAnimation(anim);
 							anim.start();
 						}
 
 						@Override
-						public void onLoadingFailed(String imageUri, View view,FailReason failReason) {
+						public void onLoadingFailed(String imageUri, View view,
+								FailReason failReason) {
 
 						}
 
 						@Override
-						public void onLoadingComplete(String imageUri,View view, Bitmap loadedImage) {
+						public void onLoadingComplete(String imageUri,
+								View view, Bitmap loadedImage) {
 
 						}
 
 						@Override
-						public void onLoadingCancelled(String imageUri,View view) {
+						public void onLoadingCancelled(String imageUri,
+								View view) {
 
 						}
 					});
 
 			LayoutParams circuterLayoutParam = new LayoutParams(120, 120);
-//			childOneLayout.addView(userImg, circuterLayoutParam);
+			// childOneLayout.addView(userImg, circuterLayoutParam);
 
 			LinearLayout childThreeLayout = new LinearLayout(getActivity());
 			childThreeLayout.setOrientation(LinearLayout.VERTICAL);
@@ -1270,15 +1464,21 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 					intent.putExtra("user_image", userReviewList.getUserImage());
 					intent.putExtra("user_name", userReviewList.getUserName());
 					intent.putExtra("user_address", userReviewList.getAddress());
-					intent.putExtra("user_heading",userReviewList.getReviewSubject());
-					intent.putExtra("user_review_no",userReviewList.getReviewOn());
-					intent.putExtra("user_rating",userReviewList.getUserRating());
-					intent.putExtra("user_reviewdate",userReviewList.getReviewDate());
-					intent.putExtra("user_review",userReviewList.getUserReviews());
+					intent.putExtra("user_heading",
+							userReviewList.getReviewSubject());
+					intent.putExtra("user_review_no",
+							userReviewList.getReviewOn());
+					intent.putExtra("user_rating",
+							userReviewList.getUserRating());
+					intent.putExtra("user_reviewdate",
+							userReviewList.getReviewDate());
+					intent.putExtra("user_review",
+							userReviewList.getUserReviews());
 					intent.putExtra("user_id", userReviewList.getUserId());
 					startActivity(intent);
 
-					getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+					getActivity().overridePendingTransition(
+							R.anim.slide_in_right, R.anim.slide_out_left);
 				}
 			});
 
@@ -1286,7 +1486,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 			FrameLayout borderLayout = new FrameLayout(getActivity());
 			borderLayout.setBackgroundColor(Color.BLACK);
-			LayoutParams borderLayoutParams = new LayoutParams(LayoutParams.FILL_PARENT, 1);
+			LayoutParams borderLayoutParams = new LayoutParams(
+					LayoutParams.FILL_PARENT, 1);
 			llUserReviewsArea.addView(borderLayout, borderLayoutParams);
 		}
 	}
@@ -1299,7 +1500,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	@Override
 	public void onAnimationEnd(Animation animation) {
 		if (flagLike == 1) {
-			if (_pref.getString("like_" + restaurantId, "").equalsIgnoreCase("1")) {
+			if (_pref.getString("like_" + restaurantId, "").equalsIgnoreCase(
+					"1")) {
 				btnLike.setImageResource(R.drawable.like_icon_hover);
 			} else {
 				btnLike.setImageResource(R.drawable.like_icon);
@@ -1307,7 +1509,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			btnLike.startAnimation(smallZoom);
 		}
 		if (flagShare == 1) {
-			if (_pref.getString("share_" + restaurantId, "").equalsIgnoreCase("1")) {
+			if (_pref.getString("share_" + restaurantId, "").equalsIgnoreCase(
+					"1")) {
 				btnShare.setImageResource(R.drawable.like_star_hover);
 			} else {
 				btnShare.setImageResource(R.drawable.like_star);
@@ -1328,10 +1531,14 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			try {
 				JsonobjectPost j_parser = new JsonobjectPost();
 				if (flagLike == 1) {
-					jObjList = j_parser.getJSONObj(Constant.BASE_URL+ "setLikeRestaurant", nameValuePairs,jsonObjectWishLike.toString());
+					jObjList = j_parser.getJSONObj(Constant.BASE_URL
+							+ "setLikeRestaurant", nameValuePairs,
+							jsonObjectWishLike.toString());
 					Log.v("Like", "Like");
 				} else if (flagShare == 1) {
-					jObjList = j_parser.getJSONObj(Constant.BASE_URL+ "setWishlistRestaurant", nameValuePairs,jsonObjectWishLike.toString());
+					jObjList = j_parser.getJSONObj(Constant.BASE_URL
+							+ "setWishlistRestaurant", nameValuePairs,
+							jsonObjectWishLike.toString());
 					Log.v("Wish", "Wish");
 				}
 
@@ -1355,7 +1562,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 		public void onTaskPreExecute() {
 			// TODO Auto-generated method stub
 
-			pDialog = CustomAlertProgressDialog.getCustomDialog(getActivity(),"Please wait...");
+			pDialog = CustomAlertProgressDialog.getCustomDialog(getActivity(),
+					"Please wait...");
 			pDialog.show();
 
 		}
@@ -1382,7 +1590,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			foodRating.setRating(0);
 			Constant.imgSelected.clear();
 
-			Toast.makeText(getActivity(),"Thank you for your review. Your review will be visible soon!!",Toast.LENGTH_LONG).show();
+			Toast.makeText(
+					getActivity(),
+					"Thank you for your review. Your review will be visible soon!!",
+					Toast.LENGTH_LONG).show();
 		}
 	};
 
@@ -1393,7 +1604,9 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			try {
 				JsonobjectPost j_parser = new JsonobjectPost();
 
-				jObjList = j_parser.getJSONObj(Constant.BASE_URL + "oauthchkreg",nameValuePairs, jsonObject1.toString(),con,this);
+				jObjList = j_parser.getJSONObj(Constant.BASE_URL
+						+ "oauthchkreg", nameValuePairs,
+						jsonObject1.toString(), con, this);
 
 			} catch (Exception e) {
 				Log.v("Exception", e.toString());
@@ -1409,28 +1622,44 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 				try {
 					JSONObject objData = jObjList.getJSONObject(TAG_DATA);
 					JSONObject objLogin = objData.getJSONObject(TAG_LOGIN);
-					JSONObject objAccessToken = objData.getJSONObject(TAG_ACCESSTOKEN);
+					JSONObject objAccessToken = objData
+							.getJSONObject(TAG_ACCESSTOKEN);
 					JSONObject objErr = jObjList.getJSONObject(TAG_ERNODE);
 					if (objErr.getString(TAG_ERCODE).equalsIgnoreCase("0")) {
-						if (objLogin.getString("success").equalsIgnoreCase("true")) {
-							_pEditor.putString("userName",objLogin.getString(TAG_USRNM));
-							_pEditor.putString("userId",objLogin.getString(TAG_USRID));
-							_pEditor.putString("userImg",objLogin.getString(TAG_USRIMG));
-							_pEditor.putString("accessToken",objAccessToken.getString(TAG_TOKEN));
-							_pEditor.putString("expiry",objAccessToken.getString(TAG_EXPIRY));
+						if (objLogin.getString("success").equalsIgnoreCase(
+								"true")) {
+							_pEditor.putString("userName",
+									objLogin.getString(TAG_USRNM));
+							_pEditor.putString("userId",
+									objLogin.getString(TAG_USRID));
+							_pEditor.putString("userImg",
+									objLogin.getString(TAG_USRIMG));
+							_pEditor.putString("accessToken",
+									objAccessToken.getString(TAG_TOKEN));
+							_pEditor.putString("expiry",
+									objAccessToken.getString(TAG_EXPIRY));
 
-							_pEditor.putString("membershipNo",objLogin.getString(TAG_MEMBERSHIP));
-							_pEditor.putString("points",objLogin.getString(TAG_POINTS));
-							_pEditor.putString("userPhoneNo",objLogin.getString(TAG_PHONE));
+							_pEditor.putString("membershipNo",
+									objLogin.getString(TAG_MEMBERSHIP));
+							_pEditor.putString("points",
+									objLogin.getString(TAG_POINTS));
+							_pEditor.putString("userPhoneNo",
+									objLogin.getString(TAG_PHONE));
 							_pEditor.commit();
 							dialog.dismiss();
-							Toast.makeText(getActivity(),"Successfully Login, Try The Activity Again",Toast.LENGTH_LONG).show();
-						}
-						else {
-							Toast.makeText(getActivity(),objLogin.getString("message"),Toast.LENGTH_LONG).show();
+							Toast.makeText(
+									getActivity(),
+									"Successfully Login, Try The Activity Again",
+									Toast.LENGTH_LONG).show();
+						} else {
+							Toast.makeText(getActivity(),
+									objLogin.getString("message"),
+									Toast.LENGTH_LONG).show();
 						}
 					} else {
-						Toast.makeText(getActivity(),objErr.getString(TAG_ERMSG), Toast.LENGTH_LONG).show();
+						Toast.makeText(getActivity(),
+								objErr.getString(TAG_ERMSG), Toast.LENGTH_LONG)
+								.show();
 					}
 
 				} catch (Exception e) {
@@ -1451,8 +1680,10 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 						result.getResolution().getIntentSender(), RC_SIGN_IN,
 						null, 0, 0, 0);
 			} catch (SendIntentException e) {
-				// The intent was canceled before it was sent. Return to the default
-				// state and attempt to connect to get an updated ConnectionResult.
+				// The intent was canceled before it was sent. Return to the
+				// default
+				// state and attempt to connect to get an updated
+				// ConnectionResult.
 				mIntentInProgress = false;
 				mGoogleApiClient.connect();
 			}
@@ -1463,7 +1694,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 	public void onConnected(Bundle arg0) {
 		mGoogleApiClient.connect();
 		if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
-			Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+			Person currentPerson = Plus.PeopleApi
+					.getCurrentPerson(mGoogleApiClient);
 			Log.v("name", currentPerson.getDisplayName());
 			profImageWhole = currentPerson.getImage().getUrl();
 			Log.v("gp+ image", profImageWhole);
@@ -1474,7 +1706,8 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 			jsonObject1 = new JSONObject();
 			jsonObject2 = new JSONObject();
 			try {
-				jsonObject2.put(TAG_EMAIL,Plus.AccountApi.getAccountName(mGoogleApiClient));
+				jsonObject2.put(TAG_EMAIL,
+						Plus.AccountApi.getAccountName(mGoogleApiClient));
 				jsonObject2.put(TAG_TYPE, "gp");
 				jsonObject2.put(TAG_AUTHID, currentPerson.getId());
 				jsonObject2.put(TAG_USRIMG, profImageWhole.substring(0, ind));
@@ -1497,12 +1730,12 @@ public class DetailsFragment extends Fragment implements AnimationListener,
 
 	@Override
 	public void tryAgain(AsyncTask<String, String, Long> conAsync) {
-		if(conAsync instanceof AstClassSetLikeWish){
+		if (conAsync instanceof AstClassSetLikeWish) {
 			conAsync = new AstClassSetLikeWish();
-		}else{
+		} else {
 			conAsync = new ListAstClass();
 		}
 		conAsync.execute("");
-		
+
 	}
 }

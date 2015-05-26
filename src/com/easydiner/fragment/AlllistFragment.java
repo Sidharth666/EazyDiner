@@ -44,7 +44,6 @@ import android.widget.ExpandableListView;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,6 +55,7 @@ import com.classes.Constant;
 import com.classes.CustomAlertProgressDialog;
 import com.classes.EasydinerClass;
 import com.classes.JsonobjectPost;
+import com.classes.MyFixedListView;
 import com.classes.Pref;
 import com.easydiner.R;
 import com.easydiner.activities.AlllistActivity;
@@ -70,7 +70,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainListener{
 
-	private ListView lvList;
+	private MyFixedListView lvList;
 	private ItemlistAdapter adpterObj;
 	private ArrayList<ListItem> arrayList;
 	public static HashMap<Integer, String> filterItem;
@@ -164,7 +164,7 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 		}
 		Log.v("gps", String.valueOf(Constant.GPS_STATUS));
 		filterItem = new HashMap<Integer, String>();
-		lvList = (ListView) rootView.findViewById(R.id.lvMainList);
+		lvList = (MyFixedListView) rootView.findViewById(R.id.lvMainList);
 		arrayList = new ArrayList<ListItem>();
 		_constant = new Constant();
 		_pref = new Pref(getActivity()).getSharedPreferencesInstance();
@@ -284,26 +284,7 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 			@Override
 			public void onClick(View v) {
 
-				flagCuisineSelection = 0;
-
-				_pEditor.putString("catId", CatId);
-				_pEditor.putString("SubCatId", SubCatId);
-				_pEditor.commit();
-
-				ivFilter.setVisibility(View.GONE);
-				textClear.setVisibility(View.GONE);
-				filterGroupCuisie.clear();
-				arrayList.clear();
-//				elvItemFilterCuisine.removeFooterView(inflaterFilterFooter);
-				loadFilterList();
-				elvItemFilterCuisine.setVisibility(View.GONE);
-				total_page = 0;
-				current_page = 1;
-				flagPagi = 0;
-				flagFilterShow = 0;
-				flagFilterDeals = 0;
-				price_id = "";
-				cuisine_id = "";
+				clearFilters();
 				loadList();
 			}
 		});
@@ -549,12 +530,18 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 							arrayList.add(_item);
 						}
 						
-						if(lvList.getFooterViewsCount()!=0){
-							((BaseAdapter)((HeaderViewListAdapter)lvList.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+						 if (lvList.getAdapter() instanceof HeaderViewListAdapter) {
+							 ((BaseAdapter)((HeaderViewListAdapter)lvList.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
 						}else{
-//							lvList.removeFooterView(listFooter);
 							((BaseAdapter) lvList.getAdapter()).notifyDataSetChanged(); 
 						}
+						
+						/*if(lvList.getFooterViewsCount()!=0){
+							((BaseAdapter)((HeaderViewListAdapter)lvList.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+						}else{
+							lvList.removeFooterView(listFooter);
+							((BaseAdapter) lvList.getAdapter()).notifyDataSetChanged(); 
+						}*/
 						
 						/*adpterObj = new ItemlistAdapter(getActivity(), arrayList);
 						lvList.setAdapter(adpterObj);
@@ -570,7 +557,10 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 						builder.setMessage("No Result Found. Press back to search again").setCancelable(false)
 						       .setPositiveButton("Back", new DialogInterface.OnClickListener() {
 						           public void onClick(DialogInterface dialog, int id) {
-						                getActivity().finish();
+//						                getActivity().finish();
+						                dialog.dismiss();
+						                clearFilters();
+						                loadList();
 						           }
 						       });
 						AlertDialog alert = builder.create();
@@ -593,14 +583,14 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 						}
 					}
 				}
+				
+				if (current_page == 1) {
+					dialog.dismiss();
+				}
 			} catch (Exception e) {
 				Toast.makeText(getActivity(), "Server error", Toast.LENGTH_LONG).show();
 
 				e.printStackTrace();
-			}
-
-			if (current_page == 1) {
-				dialog.dismiss();
 			}
 		}
 	}
@@ -654,6 +644,7 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 					elvItemFilterCuisine.setVisibility(View.GONE);
 					AlllistFragment.ivFilter.setVisibility(View.VISIBLE);
 					AlllistFragment.textClear.setVisibility(View.VISIBLE);
+					
 					loadList();
 				}
 			});
@@ -701,9 +692,32 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 			filterCuisieAdapter.notifyDataSetChanged();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	protected void clearFilters() {
+		
+		flagCuisineSelection = 0;
+
+		_pEditor.putString("catId", CatId);
+		_pEditor.putString("SubCatId", SubCatId);
+		_pEditor.commit();
+
+		ivFilter.setVisibility(View.GONE);
+		textClear.setVisibility(View.GONE);
+		filterGroupCuisie.clear();
+		arrayList.clear();
+//		elvItemFilterCuisine.removeFooterView(inflaterFilterFooter);
+		loadFilterList();
+		elvItemFilterCuisine.setVisibility(View.GONE);
+		total_page = 0;
+		current_page = 1;
+		flagPagi = 0;
+		flagFilterShow = 0;
+		flagFilterDeals = 0;
+		price_id = "";
+		cuisine_id = "";
 	}
 
 	public int GetPixelFromDips(float pixels) {
@@ -865,6 +879,7 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 					}
 
 					elvItemFilterCuisine.setVisibility(View.GONE);
+					flagFilterShow = 0;
 					AlllistFragment.ivFilter.setVisibility(View.VISIBLE);
 					AlllistFragment.textClear.setVisibility(View.VISIBLE);
 				}
@@ -894,6 +909,7 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 					}
 
 					elvItemFilterCuisine.setVisibility(View.GONE);
+					flagFilterShow = 0;
 					AlllistFragment.ivFilter.setVisibility(View.VISIBLE);
 					AlllistFragment.textClear.setVisibility(View.VISIBLE);
 				}
@@ -948,4 +964,5 @@ public class AlllistFragment extends Fragment implements TimeoutDialogTryAgainLi
 		conAsync.execute("");
 		
 	}
+
 }

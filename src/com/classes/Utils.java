@@ -20,4 +20,11 @@ public class Utils {
         }
         catch(Exception ex){}
     }
+	
+	public static int countWords(String str){
+		String trim = str.trim();
+		if (trim.isEmpty())
+	        return 0;
+	    return trim.split("\\s+").length;
+	}
 }

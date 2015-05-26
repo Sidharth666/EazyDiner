@@ -74,9 +74,9 @@ public class HomeActivity extends EasyDinerBaseActivity implements ConnectionCal
 	private ExpItemListAdapter expAdapter;
 	private ImageView ivMenuHome, ivFbLogin, ivGpLogin, ivGenLogin;
 	private RelativeLayout reviews, Rlheader, rlHomeBtnBooknow,rlHomeBtnEazyCon, rlSearchByKeyword, rlEazyTrands, rlDeals;
-	private TextView textEazyTraindsHome, textDealsHome, textSearchHome,tvEDPointHome, textDealsLower, textUpcomingBooking, textEazyPoints,
+	private TextView textEazyTraindsHome, textDealsHome, textSearchHome, textDealsLower, textUpcomingBooking, textEazyPoints,
 			textSignupLogin;
-
+	public static TextView tvEDPointHome;
 	private LinearLayout llSearch, llRestName, llEdPoints;
 	public static ImageView ivDashboardHome;
 	public static RelativeLayout rlUsersummary;

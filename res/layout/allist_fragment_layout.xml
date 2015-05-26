@@ -60,14 +60,15 @@
                 android:text="FILTER" />
         </RelativeLayout>
     </LinearLayout>
-
-    <ListView
+    
+    
+    <com.classes.MyFixedListView
         android:id="@+id/lvMainList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/testLayoutFilter" >
-    </ListView>
-
+    </com.classes.MyFixedListView>
+    
     <ExpandableListView
         android:id="@+id/elvItemFilterCuisine"
         android:layout_width="fill_parent"

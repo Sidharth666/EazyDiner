@@ -36,35 +36,29 @@ public class ItemlistAdapter extends BaseAdapter {
 	public ItemlistAdapter(Context context, ArrayList<ListItem> arrayList, SharedPreferences _pref) {
 		this.context = context;
 		this.arrayList = arrayList;
-		inflater = (LayoutInflater) this.context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		// imageLoader = new ImageLoader(context, "list");
+		inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		imageLoader = ImageLoader.getInstance();
 		this._pref = _pref;
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return arrayList.size();
 	}
 
 	@Override
 	public ListItem getItem(int position) {
-		// TODO Auto-generated method stub
 		return arrayList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@SuppressLint("InflateParams")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 
 		View rowView = convertView;
 
@@ -74,40 +68,24 @@ public class ItemlistAdapter extends BaseAdapter {
 			ViewHolder holder = new ViewHolder();
 			holder.image = (ImageView) rowView.findViewById(R.id.ivListImage);
 			holder.itemName = (TextView) rowView.findViewById(R.id.ivNameList);
-			holder.itemLocation = (TextView) rowView
-					.findViewById(R.id.tvLocationList);
+			holder.itemLocation = (TextView) rowView.findViewById(R.id.tvLocationList);
 			holder.itemType = (TextView) rowView.findViewById(R.id.tvTypeList);
-			holder.itemPrice = (ImageView) rowView
-					.findViewById(R.id.ivPriceList);
-			holder.itemDistence = (TextView) rowView
-					.findViewById(R.id.tvDistenceList);
-			holder.reviewImage = (ImageView) rowView
-					.findViewById(R.id.ivReviewImageList);
-			holder.itemCriticRatingList = (TextView) rowView
-					.findViewById(R.id.tvCriticRatingList);
-			holder.itemUserRating = (ImageView) rowView
-					.findViewById(R.id.ivUserRatingList);
-			holder.llListItem = (LinearLayout) rowView
-					.findViewById(R.id.llListItem);
-			holder.textCriticRating = (TextView) rowView
-					.findViewById(R.id.textCriticRating);
-			holder.textUserRating = (TextView) rowView
-					.findViewById(R.id.textUserRating);
-			holder.textTotalRating = (TextView) rowView
-					.findViewById(R.id.textTotalRating);
-			holder.ivPriceList = (ImageView) rowView
-					.findViewById(R.id.ivPriceList);
+			holder.itemPrice = (ImageView) rowView.findViewById(R.id.ivPriceList);
+			holder.itemDistence = (TextView) rowView.findViewById(R.id.tvDistenceList);
+			holder.reviewImage = (ImageView) rowView.findViewById(R.id.ivReviewImageList);
+			holder.itemCriticRatingList = (TextView) rowView.findViewById(R.id.tvCriticRatingList);
+			holder.itemUserRating = (ImageView) rowView.findViewById(R.id.ivUserRatingList);
+			holder.llListItem = (LinearLayout) rowView.findViewById(R.id.llListItem);
+			holder.textCriticRating = (TextView) rowView.findViewById(R.id.textCriticRating);
+			holder.textUserRating = (TextView) rowView.findViewById(R.id.textUserRating);
+			holder.textTotalRating = (TextView) rowView.findViewById(R.id.textTotalRating);
+			holder.ivPriceList = (ImageView) rowView.findViewById(R.id.ivPriceList);
 			holder.ivPinTag = (ImageView) rowView.findViewById(R.id.ivPinTag);
-			holder.llListEazydeal = (LinearLayout) rowView
-					.findViewById(R.id.llListEazydeal);
-			holder.tvEazydeal = (TextView) rowView
-					.findViewById(R.id.tvEazydeal);
-			holder.textEazyDealTag = (TextView) rowView
-					.findViewById(R.id.textEazyDealTag);
-			holder.llCriticRatingAll = (LinearLayout) rowView
-					.findViewById(R.id.llCriticRatingAll);
-			holder.llDistenceLayout = (LinearLayout) rowView
-					.findViewById(R.id.llDistenceLayout);
+			holder.llListEazydeal = (LinearLayout) rowView.findViewById(R.id.llListEazydeal);
+			holder.tvEazydeal = (TextView) rowView.findViewById(R.id.tvEazydeal);
+			holder.textEazyDealTag = (TextView) rowView.findViewById(R.id.textEazyDealTag);
+			holder.llCriticRatingAll = (LinearLayout) rowView.findViewById(R.id.llCriticRatingAll);
+			holder.llDistenceLayout = (LinearLayout) rowView.findViewById(R.id.llDistenceLayout);
 
 			setTextFont(holder);
 
@@ -122,8 +100,7 @@ public class ItemlistAdapter extends BaseAdapter {
 		if (!getItem(position).getItemdistence().equalsIgnoreCase("null")
 				&& !getItem(position).getItemdistence().equals("")) {
 			try {
-				float dst = Math.round(Float.parseFloat(getItem(position)
-						.getItemdistence()) * 100) / 100;
+				float dst = Math.round(Float.parseFloat(getItem(position).getItemdistence()) * 100) / 100;
 				if(_pref.getString("SubCatId", "").contains("NEARBY")){
 					newHolder.itemDistence.setText(String.valueOf(dst) + "Km");
 				}
@@ -132,28 +109,22 @@ public class ItemlistAdapter extends BaseAdapter {
 				e.printStackTrace();
 			}
 		} else {
-			//newHolder.itemDistence.setText("0 Km");
 		}
-		newHolder.itemCriticRatingList.setText(String.valueOf(getItem(position)
-				.getItemCritcsRating()));
+		newHolder.itemCriticRatingList.setText(String.valueOf(getItem(position).getItemCritcsRating()));
 		newHolder.itemLocation.setText(getItem(position).getItemlocation());
 		if (getItem(position).getReviewed()) {
-			newHolder.llListItem
-					.setBackgroundColor(Color.parseColor("#FBE2CF"));
+			newHolder.llListItem.setBackgroundColor(Color.parseColor("#FBE2CF"));
 			newHolder.reviewImage.setVisibility(View.VISIBLE);
 
 			newHolder.llCriticRatingAll.setVisibility(View.VISIBLE);
 			if (getItem(position).getNewItemStatus().equalsIgnoreCase("false")) {
-				newHolder.ivPinTag
-						.setImageResource(R.drawable.filter_image_orange);
+				newHolder.ivPinTag.setImageResource(R.drawable.filter_image_orange);
 			} else {
-				newHolder.ivPinTag
-						.setImageResource(R.drawable.filter_image_orange_new);
+				newHolder.ivPinTag.setImageResource(R.drawable.filter_image_orange_new);
 			}
 
 		} else {
-			newHolder.llListItem
-					.setBackgroundColor(Color.parseColor("#E6E6E6"));
+			newHolder.llListItem.setBackgroundColor(Color.parseColor("#E6E6E6"));
 			newHolder.reviewImage.setVisibility(View.GONE);
 			newHolder.llCriticRatingAll.setVisibility(View.INVISIBLE);
 			newHolder.ivPinTag.setImageResource(R.drawable.filter_image_grey);
@@ -165,8 +136,7 @@ public class ItemlistAdapter extends BaseAdapter {
 		 */
 
 		@SuppressWarnings("deprecation")
-		DisplayImageOptions options = new DisplayImageOptions.Builder()
-				.cacheInMemory(true).cacheOnDisk(true)
+		DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
 				.showImageForEmptyUri(R.drawable.default_image_restaurant)
 				.showImageOnFail(R.drawable.default_image_restaurant)
 				.showImageOnLoading(R.drawable.default_image_restaurant)
@@ -176,41 +146,32 @@ public class ItemlistAdapter extends BaseAdapter {
 
 					@Override
 					public void onLoadingStarted(String imageUri, View view) {
-						// TODO Auto-generated method stub
-						Animation anim = AnimationUtils.loadAnimation(context,
-								android.R.anim.fade_in);
+						Animation anim = AnimationUtils.loadAnimation(context,android.R.anim.fade_in);
 						newHolder.image.setAnimation(anim);
 						anim.start();
 					}
 
 					@Override
-					public void onLoadingFailed(String imageUri, View view,
-							FailReason failReason) {
-						// TODO Auto-generated method stub
+					public void onLoadingFailed(String imageUri, View view,FailReason failReason) {
 
 					}
 
 					@Override
-					public void onLoadingComplete(String imageUri, View view,
-							Bitmap loadedImage) {
-						// TODO Auto-generated method stub
+					public void onLoadingComplete(String imageUri, View view,Bitmap loadedImage) {
 
 					}
 
 					@Override
 					public void onLoadingCancelled(String imageUri, View view) {
-						// TODO Auto-generated method stub
 
 					}
 				});
 
 		if (getItem(position).getItemprice() <= 500) {
 			newHolder.ivPriceList.setImageResource(R.drawable.price_1);
-		} else if (getItem(position).getItemprice() <= 2000
-				&& getItem(position).getItemprice() >= 501) {
+		} else if (getItem(position).getItemprice() <= 2000 && getItem(position).getItemprice() >= 501) {
 			newHolder.ivPriceList.setImageResource(R.drawable.price_2);
-		} else if (getItem(position).getItemprice() <= 6000
-				&& getItem(position).getItemprice() >= 2001) {
+		} else if (getItem(position).getItemprice() <= 6000 && getItem(position).getItemprice() >= 2001) {
 			newHolder.ivPriceList.setImageResource(R.drawable.price_3);
 		} else {
 			newHolder.ivPriceList.setImageResource(R.drawable.price_4);
@@ -249,12 +210,7 @@ public class ItemlistAdapter extends BaseAdapter {
 			newHolder.llListEazydeal.setVisibility(View.GONE);
 		} else {
 			newHolder.llListEazydeal.setVisibility(View.VISIBLE);
-			/*
-			 * String eazyDeals =
-			 * getItem(position).getItemEazyDeals().substring( 0, 19);
-			 */
-			newHolder.tvEazydeal.setText("EAZYDEAL: "
-					+ getItem(position).getItemEazyDeals());
+			newHolder.tvEazydeal.setText("EAZYDEAL: " + getItem(position).getItemEazyDeals());
 		}
 
 		if (Constant.GPS_STATUS) {
@@ -290,8 +246,7 @@ public class ItemlistAdapter extends BaseAdapter {
 	}
 
 	class ViewHolder {
-		ImageView reviewImage, itemPrice, itemUserRating, ivPriceList,
-				ivPinTag, image;
+		ImageView reviewImage, itemPrice, itemUserRating, ivPriceList,ivPinTag, image;
 		// SquareImageView image;
 		TextView itemName, itemType, itemLocation, itemDistence,
 				itemCriticRatingList, textUserRating, textCriticRating,

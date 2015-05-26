@@ -1,11 +1,14 @@
 package com.easydiner.activities;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
@@ -41,6 +44,18 @@ public class SplashActivity extends Activity {
 	private SharedPreferences.Editor _pEditor;
 	private SharedPreferences _pref;
 	private GPSTrackerSecond _tracker;
+	
+	private static final String TAG_ACCESSTOKN = "accessTokn";
+	private static final String TAG_USERID = "userId";
+	private static final String TAG_GETITEM = "getItem";
+	private List<NameValuePair> nameValuePairs;
+	private JSONObject jsonObject1, jsonObject2,jObjList;
+	private static final String TAG_DATA = "data";
+	private static final String TAG_ERNODE = "erNode";
+	private static final String TAG_ERCODE = "erCode";
+	private static final String TAG_ERMSG = "erMsg";
+	private static final String TAG_POINTS = "point";
+	private String errorCode, errorMsg;
 	/*
 	private ImageView image;
 	private int count = 0;
@@ -123,6 +138,68 @@ public class SplashActivity extends Activity {
 		super.onStop();
 		FlurryAgent.onEndSession(this);
 	}
+	
+	private void getUserPoints() {
+		jsonObject1 = new JSONObject();
+		jsonObject2 = new JSONObject();
+		try {
+			jsonObject2.put(TAG_ACCESSTOKN, _pref.getString("accessToken", ""));
+			jsonObject2.put(TAG_USERID, _pref.getString("userId", ""));
+			jsonObject1.put(TAG_GETITEM, jsonObject2);
+
+			Log.e("json", jsonObject1.toString());
+
+			nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("data", jsonObject1.toString()));
+
+			AstClassPoint astClassPoints = new AstClassPoint();
+			astClassPoints.execute("");
+		
+	}catch (Exception e) {
+		Log.e("error", "error");
+	}
+	
+}
+	
+	class AstClassPoint extends AsyncTask<String, String, Long>{
+
+		@Override
+		protected Long doInBackground(String... params) {
+			try {
+
+				JsonobjectPost j_parser = new JsonobjectPost();
+
+				jObjList = j_parser.getJSONObj(Constant.BASE_URL+ "GetCustomerPoint", nameValuePairs,jsonObject1.toString());
+				System.out.println("jObjList: "+ jObjList);
+
+			} catch (Exception e) {
+				Log.v("Exception", e.toString());
+			}
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Long result) {
+			JSONObject objData;
+			try
+			{
+				objData = jObjList.getJSONObject(TAG_DATA);
+				JSONObject errorObj = jObjList.getJSONObject(TAG_ERNODE);
+
+				errorCode = errorObj.getString(TAG_ERCODE);
+				errorMsg = errorObj.getString(TAG_ERMSG);
+				if (errorCode.equalsIgnoreCase("0")) {
+					_pEditor.putString("points",objData.getString(TAG_POINTS));
+					HomeActivity.tvEDPointHome.setText(objData.getString(TAG_POINTS));
+				}
+				
+			}catch(Exception e){
+				
+			}
+			
+		}
+		
+	}
 
 	private void gotoNext() {
 
@@ -142,6 +219,7 @@ public class SplashActivity extends Activity {
 					SplashActivity.this.finish();
 					startService(new Intent(SplashActivity.this,HomelistSevice.class));
 				} else {
+					getUserPoints();
 					_pEditor.putString("device_id",_comFunction.getGCMRegistrationId());
 					_pEditor.putString("currLat",String.valueOf(_tracker.getLatitude()));
 					_pEditor.putString("currLng",String.valueOf(_tracker.getLongitude()));
@@ -150,9 +228,7 @@ public class SplashActivity extends Activity {
 					SplashActivity.this.finish();
 				}
 			}
-		}, 3000);
-
-	}
+	}, 3000);
 
 /*	@SuppressLint("SimpleDateFormat")
 	private void checkLoginExpiry() {
@@ -236,4 +312,4 @@ public class SplashActivity extends Activity {
 			}
 		}
 	}*/
-}
+}}
